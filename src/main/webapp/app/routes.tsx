@@ -45,18 +45,18 @@ const Routes = () => {
         {/* <ErrorBoundaryRoute path="/login" component={Login} />
         <ErrorBoundaryRoute path="/logout" component={Logout} /> */}
         <ErrorBoundaryRoute path="/calculator" component={Calcultor} />
-        <ErrorBoundaryRoute path="/escort" component={Escort} />
-        <ErrorBoundaryRoute path="/tahograf" component={Tahograf} />
-        <ErrorBoundaryRoute path="/protection-interests" component={ProtectionInterests} />
-        <ErrorBoundaryRoute path="/prevention-analysis" component={PreventionAnalysis} />
-        <ErrorBoundaryRoute path="/full-support" component={FullSupport} />
-        <ErrorBoundaryRoute path="/route-survey" component={RouteSurvey} />
-        <ErrorBoundaryRoute path="/weighing-car" component={WeighingСar} />
-        <ErrorBoundaryRoute path="/cover-car" component={CoverCar} />
-        <ErrorBoundaryRoute path="/account/register" component={Register} />
-        <ErrorBoundaryRoute path="/account/activate/:key?" component={Activate} />
-        <ErrorBoundaryRoute path="/account/reset/request" component={PasswordResetInit} />
-        <ErrorBoundaryRoute path="/account/reset/finish/:key?" component={PasswordResetFinish} />
+        <AppRoute layout={MainLayout} path="/escort" component={Escort} />
+        <AppRoute layout={MainLayout} path="/tahograf" component={Tahograf} />
+        <AppRoute layout={MainLayout} path="/protection-interests" component={ProtectionInterests} />
+        <AppRoute layout={MainLayout} path="/prevention-analysis" component={PreventionAnalysis} />
+        <AppRoute layout={MainLayout} path="/full-support" component={FullSupport} />
+        <AppRoute layout={MainLayout} path="/route-survey" component={RouteSurvey} />
+        <AppRoute layout={MainLayout} path="/weighing-car" component={WeighingСar} />
+        <AppRoute layout={MainLayout} path="/cover-car" component={CoverCar} />
+        <AppRoute layout={MainLayout} path="/account/register" component={Register} />
+        <AppRoute layout={MainLayout} path="/account/activate/:key?" component={Activate} />
+        <AppRoute layout={MainLayout} path="/account/reset/request" component={PasswordResetInit} />
+        <AppRoute layout={MainLayout} path="/account/reset/finish/:key?" component={PasswordResetFinish} />
         <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
         <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
         <AppRoute path="/" layout={MainLayout} exact component={Home} />

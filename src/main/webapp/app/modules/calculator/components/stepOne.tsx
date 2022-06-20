@@ -16,7 +16,7 @@ const StepOne = props => {
           </div>
           <div className="mb-2">
             <FormGroup>
-              <FormControlLabel labelPlacement="start" control={<Switch defaultChecked />} label="Сезон ограничений" />
+              <FormControlLabel labelPlacement="end" control={<Switch defaultChecked />} label="Сезон ограничений" />
             </FormGroup>
           </div>
           <div>
