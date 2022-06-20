@@ -1,0 +1,42 @@
+.full-support-main-section {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../../content/images/full-support.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 472px;
+}
+.main-title {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+
+  text-transform: uppercase;
+  margin-top: 142px;
+  color: #ffffff;
+}
+.main-description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  margin-top: 22px;
+  color: #ffffff;
+  white-space: pre;
+}
+.main-text {
+  margin-top: 70px;
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 31px;
+  /* or 172% */
+
+  text-align: justify;
+  color: #151920;
+}

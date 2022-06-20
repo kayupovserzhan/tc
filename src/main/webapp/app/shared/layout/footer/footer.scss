@@ -1,0 +1,57 @@
+.footer {
+  height: 232px;
+  background: #424659;
+  margin-top: 120px;
+}
+.footer-menu-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  /* identical to box height, or 162% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  /* Default / White */
+
+  color: #ffffff;
+  text-align: center;
+}
+.footer-container {
+  height: 100%;
+}
+.footer-container-row {
+  height: 80%;
+}
+.footer-divider {
+  height: 0.99px;
+  color: #ffffff;
+  background: #ffffff;
+  opacity: 0.2;
+  margin-bottom: 5px;
+}
+.footer-copyright {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  /* Text / Gray 300 */
+
+  color: #d9dbe1;
+}
+.insta {
+  opacity: 0.1;
+  border-radius: 45%;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../../content/images/insta.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+}

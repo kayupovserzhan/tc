@@ -1,0 +1,31 @@
+.weighing-car-main-section {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../../content/images/weighing-car.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 472px;
+}
+.main-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  color: #ffffff;
+}
+.main-description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17px;
+  /* or 106% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  color: #ffffff;
+}

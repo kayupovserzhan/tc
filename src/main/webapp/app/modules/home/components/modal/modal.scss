@@ -1,0 +1,23 @@
+$black-color: #000000;
+
+.permit-docs-modal-image {
+  max-width: 100%;
+}
+.permit-docs-modal-main-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 24px;
+  /* or 126% */
+
+  display: flex;
+  align-items: center;
+
+  /* High Emphasis */
+
+  color: $black-color;
+}
+.row-title {
+  margin-top: 10px;
+}

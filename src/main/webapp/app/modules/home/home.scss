@@ -1,0 +1,308 @@
+$blue-light-color: #94c2ff;
+$white-color: #ffffff;
+
+.main-section-home {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(../../../content/images/highway-surrounded-by-hills-cloudy-sky.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 837px;
+  .app-main-text {
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+    margin-top: 126px;
+    color: $white-color;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 78px;
+  }
+  .app-main-secondary-text {
+    display: flex;
+    justify-content: center;
+    color: #ccc;
+    margin-top: 18px;
+    color: $white-color;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    white-space: pre;
+    text-align: center;
+  }
+}
+
+.left-box {
+  width: 540px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 12px;
+  padding: 29px;
+}
+
+.right-box {
+  width: 540px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 12px;
+  padding: 29px;
+}
+
+.first-section-left-block-second-text {
+  margin-top: 12px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 35px;
+  /* or 194% */
+
+  letter-spacing: 0.2px;
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+
+.first-sections-block {
+  margin-top: 48px;
+}
+
+.first-section-left-block-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+
+  /* Gray 1 */
+
+  color: #333333;
+}
+
+.calculate-button {
+  padding: 16px 0px;
+  color: #f2f2f2;
+  width: 236px;
+  height: 60px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  /* identical to box height, or 140% */
+
+  letter-spacing: 0.1px;
+  /* Primary */
+
+  background: #2091f9;
+  border-radius: 35px;
+  border: none;
+}
+
+// .calculate-button-row {
+//   margin-top: 72px;
+// }
+
+.consult-text {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+  text-align: center;
+  color: #000000;
+}
+
+.consult-section {
+  margin-top: 74px;
+}
+
+.consult-box {
+  margin-top: 60px;
+}
+
+.pred-reisovaya-proverka {
+  width: 255px;
+  height: 315px;
+
+  background: linear-gradient(0deg, rgba(15, 64, 103, -0.3), rgba(15, 64, 103, -0.3)), url(../../../content/images/1.png),
+    url(../../../content/images/1.png);
+  background-blend-mode: multiply, normal, normal;
+  border-radius: 8px;
+}
+.permit-docs-section {
+  margin-top: 166px;
+  height: 960px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(34, 96, 216, 0) 100%),
+    url(../../../content/images/landscape-contry-road-travel-destination-rural-concept.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.permit-docs-title {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+
+  text-align: center;
+  text-transform: uppercase;
+  color: $white-color;
+  margin-top: 32px;
+}
+.permit-docs-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  /* identical to box height, or 162% */
+
+  text-align: center;
+  font-feature-settings: 'salt' on, 'liga' off;
+  color: $white-color;
+  margin-top: 10px;
+}
+
+.permit-docs-box {
+  width: 350px;
+  height: 330px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 12px;
+}
+
+.permit-docs-first-box-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  /* or 178% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  /* Text / Gray 900 */
+
+  color: #18191f;
+}
+.detailed {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  /* Blue 1 */
+
+  color: #2f80ed;
+  text-decoration: none;
+}
+.project-services-section {
+  margin-top: 42px;
+}
+.project-services-title {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height */
+
+  color: #000000;
+  text-align: center;
+}
+.project-services-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  /* identical to box height, or 162% */
+
+  text-align: center;
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  /* Text / Gray 900 */
+
+  color: #18191f;
+}
+.project-services-box {
+  width: 255px;
+  height: 434px;
+  padding: 30px;
+  background: linear-gradient(0deg, rgba(15, 64, 103, 0.7), rgba(15, 64, 103, 0.7)), url(../../../content/images/cover-car-main.png),
+    url(../../../content/images/cover-car-main.png);
+  background-blend-mode: multiply, normal, normal;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.project-services-boxes {
+  margin-top: 61px;
+}
+.cover-car-main-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  /* or 133% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  color: $white-color;
+}
+.cover-car-main-description {
+  margin-top: 18px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17px;
+  /* or 106% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  color: $white-color;
+}
+.cover-car-detailed {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  color: $blue-light-color;
+  text-decoration: none;
+}
+.detailed-consult-button {
+  color: $blue-light-color !important;
+}
