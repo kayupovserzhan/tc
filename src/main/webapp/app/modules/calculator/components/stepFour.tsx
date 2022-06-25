@@ -1,8 +1,35 @@
 import { Box, Button, FormControlLabel, FormGroup, StepContent, StepLabel, Switch, TextField, Typography } from '@mui/material';
-import React from 'react';
+import { useAppDispatch } from 'app/config/store';
+import React, { useState } from 'react';
+import { setFirstGroupOSWeight, setSecondGroupOSWeight, setThirdGroupOSWeight } from '../calculatorSlice';
 
 const StepFour = props => {
-  const { index, step, steps, handleNext, handleBack } = props;
+  const { firstGroupOSWeight, secondGroupOSWeight, thirdGroupOSWeight, index, step, steps, handleNext, handleBack } = props;
+
+  const [firstGroupOSWeightVal, setFirstGroupOSWeightVal] = useState(firstGroupOSWeight || 0);
+  const [secondGroupOSWeightVal, setSecondGroupOSWeightVal] = useState(secondGroupOSWeight || 0);
+  const [thirdGroupOSWeightVal, setThirdGroupOSWeightVal] = useState(thirdGroupOSWeight || 0);
+
+  const dispatch = useAppDispatch();
+
+  const handleFirst = e => {
+    setFirstGroupOSWeightVal(e.target.value);
+  };
+
+  const handleSecond = e => {
+    setSecondGroupOSWeightVal(e.target.value);
+  };
+
+  const handleThird = e => {
+    setThirdGroupOSWeightVal(e.target.value);
+  };
+
+  const handleNextStep = () => {
+    dispatch(setFirstGroupOSWeight);
+    dispatch(setSecondGroupOSWeight);
+    dispatch(setThirdGroupOSWeight);
+    handleNext();
+  };
 
   return (
     <>
@@ -24,19 +51,43 @@ const StepFour = props => {
           </div>
           <div className="row mt-3 mb-3">
             <div className="col">
-              <TextField className="weight_tf_s4" id="outlined-basic" label="Вес в тоннах" variant="outlined" />
+              <TextField
+                value={firstGroupOSWeightVal}
+                onChange={handleFirst}
+                type="number"
+                className="weight_tf_s4"
+                id="outlined-basic"
+                label="Вес в тоннах"
+                variant="outlined"
+              />
             </div>
             <div className="col">
-              <TextField className="weight_tf_s4" id="outlined-basic" label="Вес в тоннах" variant="outlined" />
+              <TextField
+                value={secondGroupOSWeightVal}
+                onChange={handleSecond}
+                type="number"
+                className="weight_tf_s4"
+                id="outlined-basic"
+                label="Вес в тоннах"
+                variant="outlined"
+              />
             </div>
             <div className="col">
-              <TextField className="weight_tf_s4" id="outlined-basic" label="Вес в тоннах" variant="outlined" />
+              <TextField
+                value={thirdGroupOSWeightVal}
+                onChange={handleThird}
+                type="number"
+                className="weight_tf_s4"
+                id="outlined-basic"
+                label="Вес в тоннах"
+                variant="outlined"
+              />
             </div>
           </div>
         </Box>
         <Box sx={{ mb: 2 }}>
           <div>
-            <Button variant="contained" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
+            <Button variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
               {index === steps.length - 1 ? 'Закончить' : 'Продолжить'}
             </Button>
             <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
