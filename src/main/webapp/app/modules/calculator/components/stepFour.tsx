@@ -25,9 +25,9 @@ const StepFour = props => {
   };
 
   const handleNextStep = () => {
-    dispatch(setFirstGroupOSWeight);
-    dispatch(setSecondGroupOSWeight);
-    dispatch(setThirdGroupOSWeight);
+    dispatch(setFirstGroupOSWeight(firstGroupOSWeightVal));
+    dispatch(setSecondGroupOSWeight(secondGroupOSWeightVal));
+    dispatch(setThirdGroupOSWeight(thirdGroupOSWeightVal));
     handleNext();
   };
 

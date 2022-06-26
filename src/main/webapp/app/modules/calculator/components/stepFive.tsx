@@ -34,6 +34,7 @@ const StepFive = props => {
     dispatch(setLength(lengthVal));
     dispatch(setLedge(ledgeVal));
     calculate();
+    handleNext();
   };
 
   return (

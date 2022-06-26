@@ -28,14 +28,16 @@ const StepTwo = props => {
         <Box sx={{ mb: 2 }}>
           <div className="row mt-2">
             <div className="col">
-              <Button onClick={() => handleClick('single')}>
-                <img className="atc-type-img" src="../../../../content/images/calc-atc-type/single.png" />
-                Одиночные АТС
-                {atcTypeVal === 'single' && <CheckIcon />}
+              <Button variant="outlined" fullWidth onClick={() => handleClick('single')}>
+                <div>
+                  <img className="atc-type-img" src="../../../../content/images/calc-atc-type/single.png" />
+                  Одиночные АТС
+                  {atcTypeVal === 'single' && <CheckIcon />}
+                </div>
               </Button>
             </div>
             <div className="col">
-              <Button onClick={() => handleClick('polupricep')}>
+              <Button variant="outlined" fullWidth onClick={() => handleClick('polupricep')}>
                 <img className="atc-type-img" src="../../../../content/images/calc-atc-type/polupricep.png" />
                 Автопоезд в составе тягача и полуприцепа
                 {atcTypeVal === 'polupricep' && <CheckIcon />}
@@ -44,14 +46,14 @@ const StepTwo = props => {
           </div>
           <div className="row mt-2">
             <div className="col">
-              <Button onClick={() => handleClick('pricep')}>
+              <Button variant="outlined" fullWidth onClick={() => handleClick('pricep')}>
                 <img className="atc-type-img" src="../../../../content/images/calc-atc-type/pricep.png" />
                 Автопоезд в составе тягача и прицепа
                 {atcTypeVal === 'pricep' && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
-              <Button onClick={() => handleClick('trall')}>
+              <Button variant="outlined" fullWidth onClick={() => handleClick('trall')}>
                 <img className="atc-type-img" src="../../../../content/images/calc-atc-type/trall.png" />
                 Автопоезд в составе тягача и трала
                 {atcTypeVal === 'trall' && <CheckIcon />}

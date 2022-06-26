@@ -14,6 +14,9 @@ export const initialState = {
   firstGroupOSSkat: 0,
   secondGroupOSSkat: 0,
   thirdGroupOSSkat: 0,
+  firstGroupOSDistance: 0,
+  secondGroupOSDistance: 0,
+  thirdGroupOSDistance: 0,
   firstGroupOSWeight: 0,
   secondGroupOSWeight: 0,
   thirdGroupOSWeight: 0,
@@ -123,6 +126,24 @@ export const CalculatorSlice = createSlice({
         ledge: action.payload,
       };
     },
+    setFirstGroupOSDistance(state, action) {
+      return {
+        ...state,
+        firstGroupOSDistance: action.payload,
+      };
+    },
+    setSecondGroupOSDistance(state, action) {
+      return {
+        ...state,
+        secondGroupOSDistance: action.payload,
+      };
+    },
+    setThirdGroupOSDistance(state, action) {
+      return {
+        ...state,
+        thirdGroupOSDistance: action.payload,
+      };
+    },
   },
 });
 
@@ -143,6 +164,9 @@ export const {
   setWidth,
   setLength,
   setLedge,
+  setFirstGroupOSDistance,
+  setSecondGroupOSDistance,
+  setThirdGroupOSDistance,
 } = CalculatorSlice.actions;
 
 // Reducer

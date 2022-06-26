@@ -49,9 +49,14 @@ export default function VerticalLinearStepper() {
   const firstGroupOS = useAppSelector(state => state.calculator.firstGroupOS);
   const secondGroupOS = useAppSelector(state => state.calculator.secondGroupOS);
   const thirdGroupOS = useAppSelector(state => state.calculator.thirdGroupOS);
+  // скатность
   const firstGroupOSSkat = useAppSelector(state => state.calculator.firstGroupOSSkat);
   const secondGroupOSSkat = useAppSelector(state => state.calculator.secondGroupOSSkat);
   const thirdGroupOSSkat = useAppSelector(state => state.calculator.thirdGroupOSSkat);
+  // расстояние между осями
+  const firstGroupOSDistance = useAppSelector(state => state.calculator.firstGroupOSDistance);
+  const secondGroupOSDistance = useAppSelector(state => state.calculator.secondGroupOSDistance);
+  const thirdGroupOSDistance = useAppSelector(state => state.calculator.thirdGroupOSDistance);
 
   // 4 step
   const firstGroupOSWeight = useAppSelector(state => state.calculator.firstGroupOSWeight);
@@ -64,21 +69,30 @@ export default function VerticalLinearStepper() {
   const ledge = useAppSelector(state => state.calculator.ledge);
 
   const [activeStep, setActiveStep] = React.useState(0);
+  const [finalCost, setFinalCost] = React.useState(0);
 
   const calculate = () => {
-    console.log('calc');
-    console.log(atcType);
+    const veduchiTrak = +secondGroupOS === 2 && secondGroupOSSkat === 2 ? true : false;
     if (atcType === 'single') {
       // расчет по габаритам
       const heightCoef = getCoefDimension('height', height, isometric);
       const widthCoef = getCoefDimension('width', width, isometric);
       const lengthCoef = getCoefDimension('length', length, isometric);
-      const ledgeCoef = getCoefDimension('ledge', ledge, isometric);
+      const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
 
       // расчет по осям
-      const track1Coef = table1OS(firstGroupOSWeight, isometric);
-      const track2Coef = table1OS(secondGroupOSWeight, isometric);
+      // const track1Coef = table1OS(firstGroupOSWeight, isometric);
+      // const track2Coef = table1OS(secondGroupOSWeight, isometric);
 
+      const track1Coef =
+        firstGroupOS === 1
+          ? table1OS(firstGroupOSWeight, isometric)
+          : GetCoef(isometric, firstGroupOSWeight, +firstGroupOSDistance, firstGroupOS);
+
+      const track2Coef =
+        secondGroupOS === '1'
+          ? table1OS(firstGroupOSWeight, isometric)
+          : GetCoef(isometric, firstGroupOSWeight, +secondGroupOSDistance, secondGroupOS, '', false, veduchiTrak);
       // расчет по весу
       const osCount = firstGroupOSWeight + secondGroupOSWeight;
       const allowWeight =
@@ -108,12 +122,20 @@ export default function VerticalLinearStepper() {
       const currentWeight = firstGroupOSWeight + secondGroupOSWeight;
       const weightCoef = +(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0);
       const mrp = 3063;
-      const final = (
-        (+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +track1Coef + +track2Coef) *
-        mrp *
-        +distance
-      ).toFixed();
-      console.log(final);
+      console.log('heightCoef: ' + heightCoef);
+      console.log('widthCoef: ' + widthCoef);
+      console.log('lengthCoef: ' + lengthCoef);
+      console.log('ledgeCoef: ' + ledgeCoef);
+      console.log('weightCoef: ' + weightCoef);
+      console.log('track1Coef: ' + track1Coef);
+      console.log('track2Coef: ' + track2Coef);
+      console.log(
+        'final cost: ' +
+          +((+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +track1Coef + +track2Coef) * mrp * +distance).toFixed()
+      );
+      setFinalCost(
+        +((+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +track1Coef + +track2Coef) * mrp * +distance).toFixed()
+      );
     }
   };
 
@@ -156,6 +178,9 @@ export default function VerticalLinearStepper() {
                 firstGroupOS={firstGroupOS}
                 secondGroupOS={secondGroupOS}
                 thirdGroupOS={thirdGroupOS}
+                firstGroupOSDistance={firstGroupOSDistance}
+                secondGroupOSDistance={secondGroupOSDistance}
+                thirdGroupOSDistance={thirdGroupOSDistance}
                 index={index}
                 step={step}
                 steps={steps}
@@ -194,7 +219,7 @@ export default function VerticalLinearStepper() {
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
-          <StepLast handleReset={handleReset} />
+          <StepLast finalCost={finalCost} handleReset={handleReset} />
         </Paper>
       )}
     </Box>
