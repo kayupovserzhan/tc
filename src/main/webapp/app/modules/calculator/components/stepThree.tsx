@@ -39,12 +39,15 @@ const StepThree = props => {
 
   const handleFirstGroupOs = e => {
     setFirstGroupOSVal(e);
+    setFirstGroupOsDistanceVal('');
   };
   const handleSecondGroupOs = e => {
     setSecondGroupOSVal(e);
+    setSecondGroupOsDistanceVal('');
   };
   const handleThirdGroupOs = e => {
     setThirdGroupOSVal(e);
+    setThirdGroupOsDistanceVal('');
   };
 
   // скатность осей

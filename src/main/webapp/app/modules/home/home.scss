@@ -7,7 +7,7 @@ $white-color: #ffffff;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 837px;
+  padding-bottom: 20px;
   .app-main-text {
     display: flex;
     justify-content: center;
@@ -144,14 +144,15 @@ $white-color: #ffffff;
     url(../../../content/images/1.png);
   background-blend-mode: multiply, normal, normal;
   border-radius: 8px;
+  margin: 0 auto;
 }
 .permit-docs-section {
   margin-top: 166px;
-  height: 960px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(34, 96, 216, 0) 100%),
     url(../../../content/images/landscape-contry-road-travel-destination-rural-concept.png);
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 20px;
 }
 
 .permit-docs-title {
@@ -189,7 +190,7 @@ $white-color: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   /* Note: backdrop-filter has minimal browser support */
-
+  margin: 0 auto;
   border-radius: 12px;
 }
 
@@ -261,6 +262,7 @@ $white-color: #ffffff;
   border-radius: 8px;
   background-repeat: no-repeat;
   background-position: center;
+  margin: 0 auto;
 }
 .project-services-boxes {
   margin-top: 61px;

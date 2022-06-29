@@ -14,7 +14,7 @@ const Calcultor = () => {
           нашем калькуляторе?
         </p>
       </div>
-      <div className="row mt-5">
+      <div className="row mt-2">
         <div className="col">
           <VerticalLinearStepper />
         </div>

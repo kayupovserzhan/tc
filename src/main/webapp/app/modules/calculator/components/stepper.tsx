@@ -16,6 +16,8 @@ import StepLast from './stepLast';
 import { useAppSelector } from 'app/config/store';
 import { GetCoef, getCoefDimension, table1OS } from '../calculator-coef';
 
+const MRP = 3063;
+
 const steps = [
   {
     label: 'Маршрут',
@@ -71,72 +73,258 @@ export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [finalCost, setFinalCost] = React.useState(0);
 
-  const calculate = () => {
+  function calculateSingle() {
     const veduchiTrak = +secondGroupOS === 2 && secondGroupOSSkat === 2 ? true : false;
-    if (atcType === 'single') {
-      // расчет по габаритам
-      const heightCoef = getCoefDimension('height', height, isometric);
-      const widthCoef = getCoefDimension('width', width, isometric);
-      const lengthCoef = getCoefDimension('length', length, isometric);
-      const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
+    // расчет по габаритам
+    const heightCoef = getCoefDimension('height', height, isometric);
+    const widthCoef = getCoefDimension('width', width, isometric);
+    const lengthCoef = getCoefDimension('length', length, isometric);
+    const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
 
-      // расчет по осям
-      // const track1Coef = table1OS(firstGroupOSWeight, isometric);
-      // const track2Coef = table1OS(secondGroupOSWeight, isometric);
+    // расчет по осям
 
-      const track1Coef =
-        firstGroupOS === 1
-          ? table1OS(firstGroupOSWeight, isometric)
-          : GetCoef(isometric, firstGroupOSWeight, +firstGroupOSDistance, firstGroupOS);
+    const track1Coef =
+      firstGroupOS === 1
+        ? table1OS(firstGroupOSWeight, isometric)
+        : GetCoef(isometric, firstGroupOSWeight, +firstGroupOSDistance, firstGroupOS);
 
-      const track2Coef =
-        secondGroupOS === '1'
-          ? table1OS(firstGroupOSWeight, isometric)
-          : GetCoef(isometric, firstGroupOSWeight, +secondGroupOSDistance, secondGroupOS, '', false, veduchiTrak);
-      // расчет по весу
-      const osCount = firstGroupOSWeight + secondGroupOSWeight;
-      const allowWeight =
-        osCount === 2
-          ? isometric
-            ? 14.4
-            : 18
-          : osCount === 3
-          ? isometric
-            ? secondGroupOS === 2 && secondGroupOSSkat === 2 && secondGroupOSWeight <= 19
-              ? 20.8
-              : 20
-            : 25
-          : osCount === 4
-          ? isometric
-            ? 25.6
-            : 32
-          : osCount === 5
+    const track2Coef =
+      secondGroupOS === '1'
+        ? table1OS(firstGroupOSWeight, isometric)
+        : GetCoef(isometric, firstGroupOSWeight, +secondGroupOSDistance, secondGroupOS, '', false, veduchiTrak);
+    // расчет по весу
+    const osCount = firstGroupOSWeight + secondGroupOSWeight;
+    const allowWeight =
+      osCount === 2
+        ? isometric
+          ? 14.4
+          : 18
+        : osCount === 3
+        ? isometric
+          ? secondGroupOS === 2 && secondGroupOSSkat === 2 && secondGroupOSWeight <= 19
+            ? 20.8
+            : 20
+          : 25
+        : osCount === 4
+        ? isometric
+          ? 25.6
+          : 32
+        : osCount === 5
+        ? isometric
+          ? 30.4
+          : 38
+        : osCount >= 6
+        ? isometric
+          ? 35.2
+          : 44
+        : 0;
+    const currentWeight = firstGroupOSWeight + secondGroupOSWeight;
+    const weightCoef = +(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0);
+    console.log('heightCoef: ' + heightCoef);
+    console.log('widthCoef: ' + widthCoef);
+    console.log('lengthCoef: ' + lengthCoef);
+    console.log('ledgeCoef: ' + ledgeCoef);
+    console.log('weightCoef: ' + weightCoef);
+    console.log('track1Coef: ' + track1Coef);
+    console.log('track2Coef: ' + track2Coef);
+    console.log(
+      'final cost: ' +
+        +((+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +track1Coef + +track2Coef) * MRP * +distance).toFixed()
+    );
+    setFinalCost(
+      +((+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +track1Coef + +track2Coef) * MRP * +distance).toFixed()
+    );
+  }
+
+  function calculatePolupricep() {
+    const osCount = firstGroupOS + secondGroupOS + thirdGroupOS;
+    const veduchiTrak = +secondGroupOS === 2 && secondGroupOSSkat === 2 ? true : false;
+    // расчет по габаритам
+    const heightCoef = getCoefDimension('height', height, isometric);
+    const widthCoef = getCoefDimension('width', width, isometric);
+    const lengthCoef = length > 16.5 ? getCoefDimension('length', length, isometric) : 0;
+    const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
+
+    // расчет по осям
+    const trak1Coef = table1OS(firstGroupOSWeight, isometric);
+    const trak2Coef =
+      secondGroupOS === '1'
+        ? table1OS(secondGroupOSWeight, isometric)
+        : GetCoef(isometric, +secondGroupOSWeight, +secondGroupOSDistance, +secondGroupOS, '', false, veduchiTrak);
+
+    const trak3Coef =
+      thirdGroupOS === '1'
+        ? table1OS(thirdGroupOSWeight, isometric)
+        : GetCoef(isometric, thirdGroupOSWeight, +thirdGroupOSDistance, thirdGroupOS);
+
+    // расчет по весу
+    const allowWeight =
+      osCount === 3
+        ? isometric
+          ? 22.4
+          : 28
+        : osCount === 4
+        ? secondGroupOSSkat === 2 && thirdGroupOSSkat === 2 && thirdGroupOSDistance === '18' && thirdGroupOSWeight <= 19
           ? isometric
             ? 30.4
             : 38
-          : osCount >= 6
-          ? isometric
-            ? 35.2
-            : 44
-          : 0;
-      const currentWeight = firstGroupOSWeight + secondGroupOSWeight;
-      const weightCoef = +(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0);
-      const mrp = 3063;
-      console.log('heightCoef: ' + heightCoef);
-      console.log('widthCoef: ' + widthCoef);
-      console.log('lengthCoef: ' + lengthCoef);
-      console.log('ledgeCoef: ' + ledgeCoef);
-      console.log('weightCoef: ' + weightCoef);
-      console.log('track1Coef: ' + track1Coef);
-      console.log('track2Coef: ' + track2Coef);
-      console.log(
-        'final cost: ' +
-          +((+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +track1Coef + +track2Coef) * mrp * +distance).toFixed()
-      );
-      setFinalCost(
-        +((+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +track1Coef + +track2Coef) * mrp * +distance).toFixed()
-      );
-    }
+          : isometric
+          ? 25.6
+          : 36
+        : osCount >= 5
+        ? isometric
+          ? 32
+          : 40
+        : 0;
+
+    const currentWeight = +firstGroupOSWeight + +secondGroupOSWeight + +thirdGroupOSWeight;
+    const weightCoef = +(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0);
+
+    console.log('heightCoef: ' + heightCoef);
+    console.log('widthCoef: ' + widthCoef);
+    console.log('lengthCoef: ' + lengthCoef);
+    console.log('ledgeCoef: ' + ledgeCoef);
+    console.log('weightCoef: ' + weightCoef);
+    console.log('track1Coef: ' + trak1Coef);
+    console.log('track2Coef: ' + trak2Coef);
+    console.log('track3Coef: ' + trak3Coef);
+    console.log(
+      'final cost: ' +
+        +(
+          (+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +trak1Coef + +trak2Coef + +trak3Coef) *
+          MRP *
+          +distance
+        ).toFixed()
+    );
+    setFinalCost(
+      +(
+        (+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +trak1Coef + +trak2Coef + +trak3Coef) *
+        MRP *
+        +distance
+      ).toFixed()
+    );
+  }
+
+  function calculatePricep() {
+    const osCount = +firstGroupOS + +secondGroupOS + +thirdGroupOS;
+
+    const veduchiTrak = +secondGroupOS === 2 && secondGroupOSSkat === 2 ? true : false;
+    // расчет по габаритам
+    const heightCoef = getCoefDimension('height', height, isometric);
+    const widthCoef = getCoefDimension('width', width, isometric);
+    const lengthCoef = length > 20 ? getCoefDimension('length', length, isometric) : 0;
+    const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
+
+    // расчет по осям
+    const trak1Coef =
+      firstGroupOS === 1
+        ? table1OS(firstGroupOSWeight, isometric)
+        : GetCoef(isometric, +firstGroupOSWeight, +firstGroupOSDistance, +firstGroupOS);
+    const trak2Coef =
+      secondGroupOS === 1
+        ? table1OS(secondGroupOSWeight, isometric)
+        : GetCoef(isometric, +secondGroupOSWeight, +secondGroupOSDistance, +secondGroupOS, '', false, veduchiTrak);
+
+    const trak3Coef =
+      thirdGroupOS === 1
+        ? table1OS(thirdGroupOSWeight, isometric)
+        : GetCoef(isometric, +thirdGroupOSWeight, +thirdGroupOSDistance, +thirdGroupOS);
+    // const = trak4Coef = trak4OsValue === 1 ? table1OS(trak4weight) : GetCoef(isometric, +trak4weight, +trak4OsDistance, +trak4OsValue);
+
+    // расчет по весу
+    const allowWeight =
+      osCount === 3 ? (isometric ? 22.4 : 28) : osCount === 4 ? (isometric ? 28.8 : 36) : osCount >= 5 ? (isometric ? 35.2 : 44) : 0;
+    // const currentWeight = +trak1weight + +trak2weight + +trak3weight + +trak4weight;
+    const currentWeight = +firstGroupOSWeight + +secondGroupOSWeight + +thirdGroupOSWeight;
+    const weightCoef = +(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0);
+
+    console.log('heightCoef: ' + heightCoef);
+    console.log('widthCoef: ' + widthCoef);
+    console.log('lengthCoef: ' + lengthCoef);
+    console.log('ledgeCoef: ' + ledgeCoef);
+    console.log('weightCoef: ' + weightCoef);
+    console.log('track1Coef: ' + trak1Coef);
+    console.log('track2Coef: ' + trak2Coef);
+    console.log('track3Coef: ' + trak3Coef);
+    console.log(
+      'final cost: ' +
+        +(
+          (+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +trak1Coef + +trak2Coef + +trak3Coef) *
+          MRP *
+          +distance
+        ).toFixed()
+    );
+
+    setFinalCost(
+      +(
+        (+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +trak1Coef + +trak2Coef + +trak3Coef) *
+        MRP *
+        +distance
+      ).toFixed()
+    );
+  }
+
+  function calculateTrall() {
+    const veduchiTrak = +secondGroupOS === 2 && secondGroupOSSkat === 2 ? true : false;
+
+    // расчет по габаритам
+    const heightCoef = getCoefDimension('height', height, isometric);
+    const widthCoef = getCoefDimension('width', width, isometric);
+    const lengthCoef = length > 20 ? getCoefDimension('length', length, isometric) : 0;
+    const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
+
+    // расчет по осям
+    // setTrak1Coef(
+    //   trak1OsValue === '1' ? table1OS(trak1weight) : GetCoef(isometric, +trak1weight, +trak1OsDistance, +trak1OsValue, '', lenivec)
+    // );
+
+    // setTrak2Coef(
+    //   trak2OsValue === '1'
+    //     ? table1OS(trak2weight)
+    //     : GetCoef(isometric, +trak2weight, +trak2OsDistance, +trak2OsValue, '', lenivec, veduchiTrak)
+    // );
+    // setTrak3Coef(
+    //   trak3OsValue === '1'
+    //     ? table1OS(trak3weight)
+    //     : GetCoef(isometric, +trak3weight, +trak3OsDistance, +trak3OsValue, +trak3OsValue < 4 ? '' : 'trawl')
+    // );
+    // setTrak4Coef(
+    //   pricepOs === 2
+    //     ? trak4OsValue === '1'
+    //       ? table1OS(trak4weight)
+    //       : GetCoef(isometric, +trak4weight, +trak4OsDistance, +trak4OsValue, 'trawl')
+    //     : 0
+    // );
+
+    // const tyagachOsCounttemp = +trak1OsValue + +trak2OsValue;
+    // const tralOsCounttemp = pricepOs === 1 ? +trak3OsValue : +trak3OsValue + +trak4OsValue;
+    // const tyagachAllowWeight = getAllowWeight(tyagachOsCounttemp);
+
+    // let tralAllowWeight;
+    // if (+tralOsCounttemp === 1 || +tralOsCounttemp === 2) {
+    //   tralAllowWeight = getAllowWeight(tralOsCounttemp);
+    // } else if (+tralOsCounttemp === 3) {
+    //   tralAllowWeight = 25;
+    // } else {
+    //   if (+pricepOs === 1) {
+    //     tralAllowWeight = +trak3OsValue === 1 ? 10 : +trak3OsDistance;
+    //   } else {
+    //     tralAllowWeight = (+trak3OsValue === 1 ? 10 : +trak3OsDistance) + (+trak4OsValue === 1 ? 10 : +trak4OsDistance);
+    //   }
+    // }
+    // const allowWeight = isometric
+    //   ? tyagachAllowWeight + tralAllowWeight - ((tyagachAllowWeight + tralAllowWeight) / 100) * 20
+    //   : tyagachAllowWeight + tralAllowWeight;
+
+    // const currentWeight = +trak1weight + +trak2weight + +trak3weight + +trak4weight;
+    // setWeightCoef(+(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0));
+  }
+
+  const calculate = () => {
+    if (atcType === 'single') calculateSingle();
+    if (atcType === 'polupricep') calculatePolupricep();
+    if (atcType === 'pricep') calculatePricep();
+    if (atcType === 'trall') calculateTrall();
   };
 
   const handleNext = () => {

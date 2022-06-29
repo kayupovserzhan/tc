@@ -30,8 +30,8 @@ const StepOne = props => {
       <StepLabel optional={index === 2 ? <Typography variant="caption">Last step</Typography> : null}>{step.label}</StepLabel>
       <StepContent>
         <Typography>{step.description}</Typography>
-        <Box sx={{ mb: 2 }}>
-          <div className="mb-2 mt-4">
+        <Box>
+          <div className="mb-2 mt-2">
             <TextField
               value={distanceVal}
               onChange={handleChange}
@@ -51,7 +51,7 @@ const StepOne = props => {
             </FormGroup>
           </div>
           <div>
-            <Button variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
+            <Button disabled={!distanceVal ? true : false} variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
               {index === steps.length - 1 ? 'Закончить' : 'Продолжить'}
             </Button>
             <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>

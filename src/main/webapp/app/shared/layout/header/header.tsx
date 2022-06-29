@@ -31,7 +31,7 @@ const Header = (props: IHeaderProps) => {
       <header>
         <div className="container header-row">
           <div className="row header-row align-items-center">
-            <div className="col-sm-1">
+            <div className="col-sm-1 col-md-1 col-lg-1 col-xl-1">
               <IconButton
                 onClick={() => props.toggleDrawerProps(true)}
                 size="large"
@@ -46,7 +46,7 @@ const Header = (props: IHeaderProps) => {
                 <img src="logo.svg" width="60" height="60px" />
               </a> */}
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-1 col-md-1 col-lg-3 col-xl-5">
               <div className="row justify-content-start ">
                 <div className="col-sm-6">
                   <Link to={'/'} className={'logo'}>
@@ -151,7 +151,7 @@ const Header = (props: IHeaderProps) => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-6 info-right ">
+            <div className="col-sm-1 col-md-1 col-lg-6 col-xl-6 info-right ">
               <div>+7 777 808 88 22</div>
               <button className="order-call-button">Заказать звонок</button>
               <div>Войти | Зарегистрироваться</div>

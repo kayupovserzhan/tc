@@ -61,7 +61,7 @@ const StepTwo = props => {
             </div>
           </div>
           <div>
-            <Button variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
+            <Button disabled={!atcTypeVal ? true : false} variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
               {index === steps.length - 1 ? 'Закончить' : 'Продолжить'}
             </Button>
             <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
