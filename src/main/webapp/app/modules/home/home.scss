@@ -9,6 +9,7 @@ $white-color: #ffffff;
   background-size: cover;
   padding-bottom: 20px;
   .app-main-text {
+    text-align: center;
     display: flex;
     justify-content: center;
     color: #ccc;
@@ -20,6 +21,18 @@ $white-color: #ffffff;
     font-weight: 400;
     font-size: 64px;
     line-height: 78px;
+    @media (max-width: 1200px) {
+      font-size: 64px;
+    }
+    @media (max-width: 992px) {
+      font-size: 64px;
+    }
+    @media (max-width: 768px) {
+      font-size: 64px;
+    }
+    @media (max-width: 576px) {
+      font-size: 30px;
+    }
   }
   .app-main-secondary-text {
     display: flex;
@@ -35,6 +48,9 @@ $white-color: #ffffff;
     line-height: 44px;
     white-space: pre;
     text-align: center;
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -145,6 +161,12 @@ $white-color: #ffffff;
   background-blend-mode: multiply, normal, normal;
   border-radius: 8px;
   margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+.detailed-consult-link {
+  position: absolute;
+  bottom: 10px;
 }
 .permit-docs-section {
   margin-top: 166px;
@@ -183,6 +205,7 @@ $white-color: #ffffff;
 }
 
 .permit-docs-box {
+  position: relative;
   width: 350px;
   height: 330px;
   padding: 30px;
@@ -192,6 +215,10 @@ $white-color: #ffffff;
   /* Note: backdrop-filter has minimal browser support */
   margin: 0 auto;
   border-radius: 12px;
+  .permit-docs-first-box-btn {
+    position: absolute;
+    bottom: 20px;
+  }
 }
 
 .permit-docs-first-box-text {
@@ -253,6 +280,7 @@ $white-color: #ffffff;
   color: #18191f;
 }
 .project-services-box {
+  position: relative;
   width: 255px;
   height: 434px;
   padding: 30px;
@@ -263,11 +291,30 @@ $white-color: #ffffff;
   background-repeat: no-repeat;
   background-position: center;
   margin: 0 auto;
+  .cover-car_link {
+    position: absolute;
+    bottom: 20px;
+  }
 }
 .project-services-boxes {
   margin-top: 61px;
 }
+.consult-car-main-title {
+  position: absolute;
+  top: 85px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  /* or 133% */
+
+  font-feature-settings: 'salt' on, 'liga' off;
+
+  color: $white-color;
+}
 .cover-car-main-title {
+  top: 85px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;

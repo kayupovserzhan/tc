@@ -30,8 +30,8 @@ export const Home = () => {
       <section className="main-section-home">
         <div className="container">
           <div className="row">
-            <div className="col app-main-text">
-              <text>TRANS CONSULTING</text>
+            <div className="col-12 ">
+              <div className="app-main-text fs-xl fs-lg fs-md fs-sm">TRANS CONSULTING</div>
             </div>
           </div>
           <div className="row">
@@ -94,7 +94,7 @@ export const Home = () => {
           <div className="row justify-content-between consult-box">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
-                <div className="cover-car-main-title">Предрейсовая проверка</div>
+                <div className="consult-car-main-title">Предрейсовая проверка</div>
                 <div className="detailed-consult-link">
                   <div className="col-sm-6">
                     <Button
@@ -118,7 +118,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
-                <div className="cover-car-main-title">Консультация по НПА</div>
+                <div className="consult-car-main-title">Консультация по НПА</div>
                 <div className="detailed-consult-link">
                   <div className="col-sm-6">
                     <Button
@@ -142,7 +142,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
-                <div className="cover-car-main-title">Консультация по ОГ</div>
+                <div className="consult-car-main-title">Консультация по ОГ</div>
                 <div className="detailed-consult-link">
                   <div className="col-sm-6">
                     <Button
@@ -166,7 +166,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
-                <div className="cover-car-main-title">Расчет суммы сбора</div>
+                <div className="consult-car-main-title">Расчет суммы сбора</div>
                 <div className="detailed-consult-link">
                   <div className="col-sm-6">
                     <Button
@@ -192,7 +192,7 @@ export const Home = () => {
           <div className="row justify-content-around consult-box">
             <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
-                <div className="cover-car-main-title">Подбор автомобиля и правильное размещение груза</div>
+                <div className="consult-car-main-title">Подбор автомобиля и правильное размещение груза</div>
                 <div className="detailed-consult-link">
                   <div className="col-sm-6">
                     <Button
@@ -216,7 +216,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
-                <div className="cover-car-main-title">Консультация по тахографу</div>
+                <div className="consult-car-main-title">Консультация по тахографу</div>
                 <div className="detailed-consult-link">
                   <div className="col-sm-6">
                     <Button
@@ -248,7 +248,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
-                <div className="cover-car-main-title">Оформление перевозочных документов</div>
+                <div className="consult-car-main-title">Оформление перевозочных документов</div>
                 <div className="detailed-consult-link">
                   <div className="col-sm-6">
                     <Button
@@ -296,7 +296,7 @@ export const Home = () => {
                 <div className="permit-docs-first-box-text">
                   Получение специального разрешения на перевозку тяжеловесных и крупногабаритных грузов
                 </div>
-                <div className="row justify-content-start align-items-end">
+                <div className="permit-docs-first-box-btn">
                   <div className="col-sm-6">
                     <Button
                       onClick={() => {
@@ -317,8 +317,8 @@ export const Home = () => {
             </div>
             <div className="row col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
-                <div className="row permit-docs-first-box-text">Получение специального разрешения на перевозку опасных грузов</div>
-                <div className="row justify-content-start align-items-end">
+                <div className="permit-docs-first-box-text">Получение специального разрешения на перевозку опасных грузов</div>
+                <div className="permit-docs-first-box-btn">
                   <div className="col-sm-6">
                     <Button
                       onClick={() => {
@@ -339,10 +339,10 @@ export const Home = () => {
             </div>
             <div className="row col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
-                <div className="row permit-docs-first-box-text">
+                <div className="permit-docs-first-box-text">
                   Получение удостоверения допуска к осуществлению международных автомобильных перевозок и карточки допуска
                 </div>
-                <div className="row justify-content-start align-items-end">
+                <div className="permit-docs-first-box-btn">
                   <div className="col-sm-6">
                     <Button
                       onClick={() => {
@@ -367,10 +367,10 @@ export const Home = () => {
           <div className="row justify-content-around ">
             <div className="row col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
-                <div className="row permit-docs-first-box-text">
+                <div className="permit-docs-first-box-text">
                   Получение иностранного бланка разрешения (дозвол) и заполнение отечественного бланка разрешения
                 </div>
-                <div className="row justify-content-start align-items-end">
+                <div className="permit-docs-first-box-btn">
                   <div className="col-sm-6">
                     <Button
                       onClick={() => {
@@ -391,10 +391,10 @@ export const Home = () => {
             </div>
             <div className="row col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
-                <div className="row permit-docs-first-box-text">
+                <div className="permit-docs-first-box-text">
                   Получение свидетельство о допущении транспортного средства к перевозке опасных грузов в международном сообщении
                 </div>
-                <div className="row justify-content-start align-items-end">
+                <div className="permit-docs-first-box-btn">
                   <div className="col-sm-6">
                     <Button
                       onClick={() => {
@@ -433,12 +433,12 @@ export const Home = () => {
           <div className="row justify-content-between mt-5 ">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Автомобиль прикрытия</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Автомобиль прикрытия</div>
+                <div className="cover-car-main-description">
                   При перевозке негабаритных и тяжеловесных, а также опасных грузов необходимо сопровождение автомобилем прикрытия в целях
                   обеспечения безопасной перевозки.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/cover-car'}>
                     Подробнее
                   </Link>
@@ -447,11 +447,11 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Взвешивание автомобиля и сопровождение погрузки с выездом</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Взвешивание автомобиля и сопровождение погрузки с выездом</div>
+                <div className="cover-car-main-description">
                   Проверка весовых параметров вашего ТС после погрузки посредством взвешивания каждой оси на мобильных весах.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/weighing-car'}>
                     Подробнее
                   </Link>
@@ -460,12 +460,12 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Обследование маршрута перевозки</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Обследование маршрута перевозки</div>
+                <div className="cover-car-main-description">
                   При перевозке негабаритных и тяжеловесных грузов необходимо проводить предварительное обследование маршрута на возможность
                   проезда и наличие препятствии по маршруту.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/route-survey'}>
                     Подробнее
                   </Link>
@@ -474,12 +474,12 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Полное сопровождение при перевозке опасных грузов</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Полное сопровождение при перевозке опасных грузов</div>
+                <div className="cover-car-main-description">
                   Перевозка опасных грузов является одним сложных видов перевозки, который требует особой подготовки как водителя, так и
                   самого транспортного средства.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/full-support'}>
                     Подробнее
                   </Link>
@@ -490,12 +490,12 @@ export const Home = () => {
           <div className="row justify-content-between ">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Профилактика и анализ деятельности компании</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Профилактика и анализ деятельности компании</div>
+                <div className="cover-car-main-description">
                   Профилактика и анализ деятельности предприятий в области автомобильного транспорта это комплекс мероприятий направленных
                   на предупреждение правонарушений и устранение факторов их совершения.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/prevention-analysis'}>
                     Подробнее
                   </Link>
@@ -504,11 +504,11 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Защита интересов в гос.органах</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Защита интересов в гос.органах</div>
+                <div className="cover-car-main-description">
                   Проверка весовых параметров вашего ТС после погрузки посредством взвешивания каждой оси на мобильных весах.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/protection-interests'}>
                     Подробнее
                   </Link>
@@ -517,12 +517,12 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Тахограф</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Тахограф</div>
+                <div className="cover-car-main-description">
                   При перевозке негабаритных и тяжеловесных грузов необходимо проводить предварительное обследование маршрута на возможность
                   проезда и наличие препятствии по маршруту.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/tahograf'}>
                     Подробнее
                   </Link>
@@ -531,12 +531,12 @@ export const Home = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
-                <div className="row cover-car-main-title">Сопровождение при открытии центра технического осмотра</div>
-                <div className="row cover-car-main-description">
+                <div className="cover-car-main-title">Сопровождение при открытии центра технического осмотра</div>
+                <div className="cover-car-main-description">
                   Перевозка опасных грузов является одним сложных видов перевозки, который требует особой подготовки как водителя, так и
                   самого транспортного средства.
                 </div>
-                <div className="row align-items-end">
+                <div className="cover-car_link">
                   <Link className="cover-car-detailed" to={'/escort'}>
                     Подробнее
                   </Link>
