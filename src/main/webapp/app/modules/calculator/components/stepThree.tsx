@@ -49,7 +49,6 @@ const StepThree = props => {
     setFirstGroupOsDistanceVal('');
   };
   const handleSecondGroupOs = e => {
-    console.log(e);
     setSecondGroupOSVal(e);
     setSecondGroupOsDistanceVal('');
   };
@@ -110,7 +109,7 @@ const StepThree = props => {
     setThirdGroupOSSkatVal(e);
   };
   const handleFourGroupOsSkat = e => {
-    setThirdGroupOSSkatVal(e);
+    setFourGroupOSSkatVal(e);
   };
 
   const handleNextStep = () => {
@@ -153,13 +152,42 @@ const StepThree = props => {
       }
     }
 
-    if (atcType === 'polupricep') return;
-    if (atcType === 'pricep') return;
-    if (atcType === 'trall') return;
+    if (atcType === 'pricep' || atcType === 'trall') {
+      if (checkFoursGroupOsVal) {
+        if (firstGroupOSVal > 0 && secondGroupOSVal > 0 && thirdGroupOSVal > 0 && fourGroupOSVal > 0) {
+          if (firstGroupOSVal > 1 && firstGroupOsDistanceVal === '') return true;
+          if (secondGroupOSVal > 1 && secondGroupOsDistanceVal === '') return true;
+          if (thirdGroupOSVal > 1 && thirdGroupOsDistanceVal === '') return true;
+          if (fourGroupOSVal > 1 && fourGroupOsDistanceVal === '') return true;
+
+          if (firstGroupOSSkatVal === 0 || secondGroupOSSkatVal === 0 || thirdGroupOSSkatVal === 0 || fourGroupOSSkatVal === 0) return true;
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        if (firstGroupOSVal > 0 && secondGroupOSVal > 0 && thirdGroupOSVal > 0) {
+          if (firstGroupOSVal > 1 && firstGroupOsDistanceVal === '') return true;
+          if (secondGroupOSVal > 1 && secondGroupOsDistanceVal === '') return true;
+          if (thirdGroupOSVal > 1 && thirdGroupOsDistanceVal === '') return true;
+
+          if (firstGroupOSSkatVal === 0 || secondGroupOSSkatVal === 0 || thirdGroupOSSkatVal === 0) return true;
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
   }
 
   const handleClickAdd = () => {
     setCheckFoursGroupOsVal(!checkFoursGroupOsVal);
+    if (checkFoursGroupOsVal) {
+      setFourGroupOSVal(0);
+      setFourGroupOsDistanceVal('');
+      setFourGroupOSSkatVal(0);
+      console.log('deleted');
+    }
   };
 
   // console.log(isAllValuesSelected());
@@ -366,13 +394,13 @@ const StepThree = props => {
             </>
           )}
           <div className="row mt-4">
-            <div className="col">Скатность колес</div>
-            <div className="col">Скатность колес</div>
-            <div className="col">Скатность колес</div>
+            <div className="col-3">Скатность колес</div>
+            <div className="col-3">Скатность колес</div>
+            <div className="col-3">Скатность колес</div>
             {checkFoursGroupOsVal && <div className="col">Скатность колес</div>}
           </div>
           <div className="row mt-4">
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleFirstGroupOsSkat(1)} variant="outlined">
                 <img src="/content/images/skat/1skat.png" />
                 Односкатные
@@ -384,7 +412,7 @@ const StepThree = props => {
                 {firstGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleSecondGroupOsSkat(1)} variant="outlined">
                 <img src="/content/images/skat/1skat.png" />
                 Односкатные
@@ -396,7 +424,7 @@ const StepThree = props => {
                 {secondGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleThirdGroupOsSkat(1)} variant="outlined">
                 <img src="/content/images/skat/1skat.png" />
                 Односкатные
@@ -409,7 +437,7 @@ const StepThree = props => {
               </Button>
             </div>
             {checkFoursGroupOsVal && (
-              <div className="col">
+              <div className="col-3">
                 <Button fullWidth onClick={() => handleFourGroupOsSkat(1)} variant="outlined">
                   <img src="/content/images/skat/1skat.png" />
                   Односкатные

@@ -37,6 +37,11 @@ const StepFive = props => {
     handleNext();
   };
 
+  function isAllValuesSelected(): boolean {
+    if (heightVal > 0 && widthVal > 0 && lengthVal > 0 && ledgeVal > 0) return false;
+    return true;
+  }
+
   return (
     <>
       <StepLabel optional={index === 2 ? <Typography variant="caption">Last step</Typography> : null}>{step.label}</StepLabel>
@@ -102,7 +107,7 @@ const StepFive = props => {
         </Box>
         <Box sx={{ mb: 2 }}>
           <div>
-            <Button variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
+            <Button disabled={isAllValuesSelected()} variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
               {index === steps.length - 1 ? 'Рассчитать стоимость' : 'Продолжить'}
             </Button>
             <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>

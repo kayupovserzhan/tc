@@ -31,6 +31,11 @@ const StepFour = props => {
     handleNext();
   };
 
+  function isAllValuesSelected(): boolean {
+    if (firstGroupOSWeightVal > 0 && secondGroupOSWeightVal > 0 && thirdGroupOSWeightVal > 0) return false;
+    return true;
+  }
+
   return (
     <>
       <StepLabel optional={index === 2 ? <Typography variant="caption">Last step</Typography> : null}>{step.label}</StepLabel>
@@ -87,7 +92,7 @@ const StepFour = props => {
         </Box>
         <Box sx={{ mb: 2 }}>
           <div>
-            <Button variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
+            <Button disabled={isAllValuesSelected()} variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
               {index === steps.length - 1 ? 'Закончить' : 'Продолжить'}
             </Button>
             <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
