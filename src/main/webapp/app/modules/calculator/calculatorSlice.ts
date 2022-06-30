@@ -11,15 +11,19 @@ export const initialState = {
   firstGroupOS: 0,
   secondGroupOS: 0,
   thirdGroupOS: 0,
+  fourGroupOS: 0,
   firstGroupOSSkat: 0,
   secondGroupOSSkat: 0,
   thirdGroupOSSkat: 0,
+  fourGroupOSSkat: 0,
   firstGroupOSDistance: 0,
   secondGroupOSDistance: 0,
   thirdGroupOSDistance: 0,
+  fourGroupOSDistance: 0,
   firstGroupOSWeight: 0,
   secondGroupOSWeight: 0,
   thirdGroupOSWeight: 0,
+  fourGroupOSWeight: 0,
   height: 0,
   width: 0,
   length: 0,
@@ -66,6 +70,12 @@ export const CalculatorSlice = createSlice({
         thirdGroupOS: action.payload,
       };
     },
+    setFourGroupOS(state, action) {
+      return {
+        ...state,
+        fourGroupOS: action.payload,
+      };
+    },
     setFirstGroupOSSkat(state, action) {
       return {
         ...state,
@@ -84,6 +94,12 @@ export const CalculatorSlice = createSlice({
         thirdGroupOSSkat: action.payload,
       };
     },
+    setFourGroupOSSkat(state, action) {
+      return {
+        ...state,
+        fourGroupOSSkat: action.payload,
+      };
+    },
     setFirstGroupOSWeight(state, action) {
       return {
         ...state,
@@ -100,6 +116,12 @@ export const CalculatorSlice = createSlice({
       return {
         ...state,
         thirdGroupOSWeight: action.payload,
+      };
+    },
+    setFourGroupOSWeight(state, action) {
+      return {
+        ...state,
+        fourGroupOSWeight: action.payload,
       };
     },
     setHeight(state, action) {
@@ -144,6 +166,12 @@ export const CalculatorSlice = createSlice({
         thirdGroupOSDistance: action.payload,
       };
     },
+    setFourGroupOSDistance(state, action) {
+      return {
+        ...state,
+        fourGroupOSDistance: action.payload,
+      };
+    },
   },
 });
 
@@ -154,12 +182,15 @@ export const {
   setFirstGroupOS,
   setSecondGroupOS,
   setThirdGroupOS,
+  setFourGroupOS,
   setFirstGroupOSSkat,
   setSecondGroupOSSkat,
   setThirdGroupOSSkat,
+  setFourGroupOSSkat,
   setFirstGroupOSWeight,
   setSecondGroupOSWeight,
   setThirdGroupOSWeight,
+  setFourGroupOSWeight,
   setHeight,
   setWidth,
   setLength,
@@ -167,6 +198,7 @@ export const {
   setFirstGroupOSDistance,
   setSecondGroupOSDistance,
   setThirdGroupOSDistance,
+  setFourGroupOSDistance,
 } = CalculatorSlice.actions;
 
 // Reducer

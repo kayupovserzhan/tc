@@ -1,7 +1,7 @@
 import { Box, Button, FormControl, InputLabel, MenuItem, Select, StepContent, StepLabel, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import CheckIcon from '@mui/icons-material/Check';
-import { useAppDispatch } from 'app/config/store';
+import { useAppDispatch, useAppSelector } from 'app/config/store';
 import {
   setFirstGroupOS,
   setFirstGroupOSDistance,
@@ -12,36 +12,44 @@ import {
   setThirdGroupOS,
   setThirdGroupOSDistance,
   setThirdGroupOSSkat,
+  setFourGroupOS,
+  setFourGroupOSDistance,
+  setFourGroupOSSkat,
 } from '../calculatorSlice';
 
 const StepThree = props => {
-  const {
-    firstGroupOSDistance,
-    secondGroupOSDistance,
-    thirdGroupOSDistance,
-    firstGroupOSSkat,
-    secondGroupOSSkat,
-    thirdGroupOSSkat,
-    firstGroupOS,
-    secondGroupOS,
-    thirdGroupOS,
-    index,
-    step,
-    steps,
-    handleNext,
-    handleBack,
-  } = props;
+  const { index, step, steps, handleNext, handleBack } = props;
+
+  const atcType = useAppSelector(state => state.calculator.atcType);
+  const firstGroupOSDistance = useAppSelector(state => state.calculator.firstGroupOSDistance);
+  const secondGroupOSDistance = useAppSelector(state => state.calculator.secondGroupOSDistance);
+  const thirdGroupOSDistance = useAppSelector(state => state.calculator.thirdGroupOSDistance);
+  const fourGroupOSDistance = useAppSelector(state => state.calculator.fourGroupOSDistance);
+
+  const firstGroupOSSkat = useAppSelector(state => state.calculator.firstGroupOSSkat);
+  const secondGroupOSSkat = useAppSelector(state => state.calculator.secondGroupOSSkat);
+  const thirdGroupOSSkat = useAppSelector(state => state.calculator.thirdGroupOSSkat);
+  const fourGroupOSSkat = useAppSelector(state => state.calculator.fourGroupOSSkat);
+
+  const firstGroupOS = useAppSelector(state => state.calculator.firstGroupOS);
+  const secondGroupOS = useAppSelector(state => state.calculator.secondGroupOS);
+  const thirdGroupOS = useAppSelector(state => state.calculator.thirdGroupOS);
+  const fourGroupOS = useAppSelector(state => state.calculator.fourGroupOS);
+
+  const [checkFoursGroupOsVal, setCheckFoursGroupOsVal] = useState(false);
 
   // группа осей
   const [firstGroupOSVal, setFirstGroupOSVal] = useState(firstGroupOS || 0);
   const [secondGroupOSVal, setSecondGroupOSVal] = useState(secondGroupOS || 0);
   const [thirdGroupOSVal, setThirdGroupOSVal] = useState(thirdGroupOS || 0);
+  const [fourGroupOSVal, setFourGroupOSVal] = useState(fourGroupOS || 0);
 
   const handleFirstGroupOs = e => {
     setFirstGroupOSVal(e);
     setFirstGroupOsDistanceVal('');
   };
   const handleSecondGroupOs = e => {
+    console.log(e);
     setSecondGroupOSVal(e);
     setSecondGroupOsDistanceVal('');
   };
@@ -49,16 +57,23 @@ const StepThree = props => {
     setThirdGroupOSVal(e);
     setThirdGroupOsDistanceVal('');
   };
+  const handleFourGroupOs = e => {
+    setFourGroupOSVal(e);
+    setFourGroupOsDistanceVal('');
+  };
 
   // скатность осей
   const [firstGroupOSSkatVal, setFirstGroupOSSkatVal] = useState(firstGroupOSSkat || 0);
   const [secondGroupOSSkatVal, setSecondGroupOSSkatVal] = useState(secondGroupOSSkat || 0);
   const [thirdGroupOSSkatVal, setThirdGroupOSSkatVal] = useState(thirdGroupOSSkat || 0);
+  const [fourGroupOSSkatVal, setFourGroupOSSkatVal] = useState(fourGroupOSSkat || 0);
 
   // расстояние между осями
   const [firstGroupOsDistanceVal, setFirstGroupOsDistanceVal] = useState(firstGroupOSDistance || '');
   const [secondGroupOsDistanceVal, setSecondGroupOsDistanceVal] = useState(secondGroupOSDistance || '');
   const [thirdGroupOsDistanceVal, setThirdGroupOsDistanceVal] = useState(thirdGroupOSDistance || '');
+  const [fourGroupOsDistanceVal, setFourGroupOsDistanceVal] = useState(fourGroupOSDistance || '');
+
   const optionValues = {
     first: firstGroupOSVal === '2' ? '12' : '18',
     second: firstGroupOSVal === '2' ? '14' : '21',
@@ -79,6 +94,10 @@ const StepThree = props => {
     setThirdGroupOsDistanceVal(e.target.value as string);
   };
 
+  const handleChangeFour = e => {
+    setFourGroupOsDistanceVal(e.target.value as string);
+  };
+
   const dispatch = useAppDispatch();
 
   const handleFirstGroupOsSkat = e => {
@@ -90,27 +109,61 @@ const StepThree = props => {
   const handleThirdGroupOsSkat = e => {
     setThirdGroupOSSkatVal(e);
   };
+  const handleFourGroupOsSkat = e => {
+    setThirdGroupOSSkatVal(e);
+  };
 
   const handleNextStep = () => {
     dispatch(setFirstGroupOS(firstGroupOSVal));
     dispatch(setSecondGroupOS(secondGroupOSVal));
     dispatch(setThirdGroupOS(thirdGroupOSVal));
+    dispatch(setFourGroupOS(fourGroupOSVal));
+
     dispatch(setFirstGroupOSSkat(firstGroupOSSkatVal));
     dispatch(setSecondGroupOSSkat(secondGroupOSSkatVal));
     dispatch(setThirdGroupOSSkat(thirdGroupOSSkatVal));
+    dispatch(setFourGroupOSSkat(fourGroupOSSkatVal));
+
     dispatch(setFirstGroupOSDistance(firstGroupOsDistanceVal));
     dispatch(setSecondGroupOSDistance(secondGroupOsDistanceVal));
     dispatch(setThirdGroupOSDistance(thirdGroupOsDistanceVal));
+    dispatch(setFourGroupOSDistance(fourGroupOsDistanceVal));
     handleNext();
   };
 
   function FGroupOSVal() {
-    if (firstGroupOSVal > 1 || secondGroupOSVal > 1 || thirdGroupOSVal > 1) {
+    if (firstGroupOSVal > 1 || secondGroupOSVal > 1 || thirdGroupOSVal > 1 || fourGroupOSVal > 1) {
       return true;
     } else {
       return false;
     }
   }
+
+  function isAllValuesSelected(): boolean {
+    if (atcType === 'single' || atcType === 'polupricep') {
+      if (firstGroupOSVal > 0 && secondGroupOSVal > 0 && thirdGroupOSVal > 0) {
+        if (firstGroupOSVal > 1 && firstGroupOsDistanceVal === '') return true;
+        if (secondGroupOSVal > 1 && secondGroupOsDistanceVal === '') return true;
+        if (thirdGroupOSVal > 1 && thirdGroupOsDistanceVal === '') return true;
+
+        if (firstGroupOSSkatVal === 0 || secondGroupOSSkatVal === 0 || thirdGroupOSSkatVal === 0) return true;
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    if (atcType === 'polupricep') return;
+    if (atcType === 'pricep') return;
+    if (atcType === 'trall') return;
+  }
+
+  const handleClickAdd = () => {
+    setCheckFoursGroupOsVal(!checkFoursGroupOsVal);
+  };
+
+  // console.log(isAllValuesSelected());
+
   return (
     <>
       <StepLabel>{step.label}</StepLabel>
@@ -118,12 +171,17 @@ const StepThree = props => {
         <Typography>{step.description}</Typography>
         <Box sx={{ mb: 2 }}>
           <div className="row mt-5">
-            <div className="col">Первая группа осей</div>
-            <div className="col">Вторая группа осей</div>
-            <div className="col">Третья группа осей</div>
+            <div className="col-3">Первая группа осей</div>
+            <div className="col-3">Вторая группа осей</div>
+            <div className="col-3">Третья группа осей</div>
+            {atcType === 'pricep' && (
+              <div className="col-3">
+                <Button onClick={handleClickAdd}>{checkFoursGroupOsVal ? 'Удалить' : 'Добавить'}</Button>
+              </div>
+            )}
           </div>
           <div className="row mt-2">
-            <div className="col">
+            <div className="col-3">
               {/* <ButtonBases url={'/content/images/os/1os.png'} title={'Одиночные'} width={'100%'} /> */}
               <Button fullWidth onClick={() => handleFirstGroupOs(1)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/1os.png" />
@@ -131,71 +189,98 @@ const StepThree = props => {
                 {firstGroupOSVal === 1 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleSecondGroupOs(1)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/1os.png" />
                 Одиночные
                 {secondGroupOSVal === 1 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleThirdGroupOs(1)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/1os.png" />
                 Одиночные
                 {thirdGroupOSVal === 1 && <CheckIcon />}
               </Button>
             </div>
+            {checkFoursGroupOsVal && (
+              <div className="col-3">
+                <Button fullWidth onClick={() => handleFourGroupOs(1)} variant="outlined">
+                  <img className="atc-type-img" src="/content/images/os/1os.png" />
+                  Одиночные
+                  {fourGroupOSVal === 1 && <CheckIcon />}
+                </Button>
+              </div>
+            )}
           </div>
           <div className="row mt-2">
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleFirstGroupOs(2)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {firstGroupOSVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleSecondGroupOs(2)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {secondGroupOSVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleThirdGroupOs(2)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {thirdGroupOSVal === 2 && <CheckIcon />}
               </Button>
             </div>
+            {checkFoursGroupOsVal && (
+              <div className="col-3">
+                <Button fullWidth onClick={() => handleFourGroupOs(2)} variant="outlined">
+                  <img className="atc-type-img" src="/content/images/os/2os.png" />
+                  Сдвоенные
+                  {fourGroupOSVal === 2 && <CheckIcon />}
+                </Button>
+              </div>
+            )}
           </div>
           <div className="row mt-2">
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleFirstGroupOs(3)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {firstGroupOSVal === 3 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleSecondGroupOs(3)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {secondGroupOSVal === 3 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Button fullWidth onClick={() => handleThirdGroupOs(3)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {thirdGroupOSVal === 3 && <CheckIcon />}
               </Button>
             </div>
+            {checkFoursGroupOsVal && (
+              <div className="col-3">
+                <Button fullWidth onClick={() => handleFourGroupOs(3)} variant="outlined">
+                  <img className="atc-type-img" src="/content/images/os/3os.png" />
+                  Строенные
+                  {fourGroupOSVal === 3 && <CheckIcon />}
+                </Button>
+              </div>
+            )}
           </div>
           {FGroupOSVal() && (
             <>
               <div className="row mt-4">
-                <div className="col">
+                <div className="col-3">
                   {firstGroupOSVal > 1 && (
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
@@ -215,7 +300,7 @@ const StepThree = props => {
                     </FormControl>
                   )}
                 </div>
-                <div className="col">
+                <div className="col-3">
                   {secondGroupOSVal > 1 && (
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
@@ -235,7 +320,7 @@ const StepThree = props => {
                     </FormControl>
                   )}
                 </div>
-                <div className="col">
+                <div className="col-3">
                   {thirdGroupOSVal > 1 && (
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
@@ -255,6 +340,28 @@ const StepThree = props => {
                     </FormControl>
                   )}
                 </div>
+                {checkFoursGroupOsVal && (
+                  <div className="col-3">
+                    {fourGroupOSVal > 1 && (
+                      <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={fourGroupOsDistanceVal}
+                          defaultValue={fourGroupOsDistanceVal}
+                          label="Расстояние между осями"
+                          onChange={handleChangeFour}
+                        >
+                          <MenuItem value={first}>до 1 метра</MenuItem>
+                          <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
+                          <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
+                          <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
+                        </Select>
+                      </FormControl>
+                    )}
+                  </div>
+                )}
               </div>
             </>
           )}
@@ -262,6 +369,7 @@ const StepThree = props => {
             <div className="col">Скатность колес</div>
             <div className="col">Скатность колес</div>
             <div className="col">Скатность колес</div>
+            {checkFoursGroupOsVal && <div className="col">Скатность колес</div>}
           </div>
           <div className="row mt-4">
             <div className="col">
@@ -300,9 +408,23 @@ const StepThree = props => {
                 {thirdGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>
             </div>
+            {checkFoursGroupOsVal && (
+              <div className="col">
+                <Button fullWidth onClick={() => handleFourGroupOsSkat(1)} variant="outlined">
+                  <img src="/content/images/skat/1skat.png" />
+                  Односкатные
+                  {fourGroupOSSkatVal === 1 && <CheckIcon />}
+                </Button>
+                <Button fullWidth onClick={() => handleFourGroupOsSkat(2)} variant="outlined">
+                  <img src="/content/images/skat/2skat.png" />
+                  Двускатные
+                  {fourGroupOSSkatVal === 2 && <CheckIcon />}
+                </Button>
+              </div>
+            )}
           </div>
           <div>
-            <Button variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
+            <Button disabled={isAllValuesSelected()} variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
               {index === steps.length - 1 ? 'Закончить' : 'Продолжить'}
             </Button>
             <Button disabled={index === 0} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>

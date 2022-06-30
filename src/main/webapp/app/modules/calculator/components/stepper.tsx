@@ -51,19 +51,23 @@ export default function VerticalLinearStepper() {
   const firstGroupOS = useAppSelector(state => state.calculator.firstGroupOS);
   const secondGroupOS = useAppSelector(state => state.calculator.secondGroupOS);
   const thirdGroupOS = useAppSelector(state => state.calculator.thirdGroupOS);
+  const fourGroupOS = useAppSelector(state => state.calculator.fourGroupOS);
   // скатность
   const firstGroupOSSkat = useAppSelector(state => state.calculator.firstGroupOSSkat);
   const secondGroupOSSkat = useAppSelector(state => state.calculator.secondGroupOSSkat);
   const thirdGroupOSSkat = useAppSelector(state => state.calculator.thirdGroupOSSkat);
+  const fourGroupOSSkat = useAppSelector(state => state.calculator.fourGroupOSSkat);
   // расстояние между осями
   const firstGroupOSDistance = useAppSelector(state => state.calculator.firstGroupOSDistance);
   const secondGroupOSDistance = useAppSelector(state => state.calculator.secondGroupOSDistance);
   const thirdGroupOSDistance = useAppSelector(state => state.calculator.thirdGroupOSDistance);
+  const fourGroupOSDistance = useAppSelector(state => state.calculator.fourGroupOSDistance);
 
   // 4 step
   const firstGroupOSWeight = useAppSelector(state => state.calculator.firstGroupOSWeight);
   const secondGroupOSWeight = useAppSelector(state => state.calculator.secondGroupOSWeight);
   const thirdGroupOSWeight = useAppSelector(state => state.calculator.thirdGroupOSWeight);
+  const fourGroupOSWeight = useAppSelector(state => state.calculator.fourGroupOSWeight);
   // 5 step
   const height = useAppSelector(state => state.calculator.height);
   const width = useAppSelector(state => state.calculator.width);
@@ -358,24 +362,7 @@ export default function VerticalLinearStepper() {
             {index === 1 && (
               <StepTwo atcType={atcType} index={index} step={step} steps={steps} handleNext={handleNext} handleBack={handleBack} />
             )}
-            {index === 2 && (
-              <StepThree
-                firstGroupOSSkat={firstGroupOSSkat}
-                secondGroupOSSkat={secondGroupOSSkat}
-                thirdGroupOSSkat={thirdGroupOSSkat}
-                firstGroupOS={firstGroupOS}
-                secondGroupOS={secondGroupOS}
-                thirdGroupOS={thirdGroupOS}
-                firstGroupOSDistance={firstGroupOSDistance}
-                secondGroupOSDistance={secondGroupOSDistance}
-                thirdGroupOSDistance={thirdGroupOSDistance}
-                index={index}
-                step={step}
-                steps={steps}
-                handleNext={handleNext}
-                handleBack={handleBack}
-              />
-            )}
+            {index === 2 && <StepThree index={index} step={step} steps={steps} handleNext={handleNext} handleBack={handleBack} />}
             {index === 3 && (
               <StepFour
                 firstGroupOSWeight={firstGroupOSWeight}
