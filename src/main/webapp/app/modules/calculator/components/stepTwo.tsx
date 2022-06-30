@@ -30,7 +30,7 @@ const StepTwo = props => {
             <div className="col">
               <Button variant="outlined" fullWidth onClick={() => handleClick('single')}>
                 <div>
-                  <img className="atc-type-img" src="../../../../content/images/calc-atc-type/single.png" />
+                  <img className="atc-type-img" src="/content/images/calc-atc-type/single.png" />
                   Одиночные АТС
                   {atcTypeVal === 'single' && <CheckIcon />}
                 </div>
@@ -38,7 +38,7 @@ const StepTwo = props => {
             </div>
             <div className="col">
               <Button variant="outlined" fullWidth onClick={() => handleClick('polupricep')}>
-                <img className="atc-type-img" src="../../../../content/images/calc-atc-type/polupricep.png" />
+                <img className="atc-type-img" src="/content/images/calc-atc-type/polupricep.png" />
                 Автопоезд в составе тягача и полуприцепа
                 {atcTypeVal === 'polupricep' && <CheckIcon />}
               </Button>
@@ -47,14 +47,14 @@ const StepTwo = props => {
           <div className="row mt-2">
             <div className="col">
               <Button variant="outlined" fullWidth onClick={() => handleClick('pricep')}>
-                <img className="atc-type-img" src="../../../../content/images/calc-atc-type/pricep.png" />
+                <img className="atc-type-img" src="/content/images/calc-atc-type/pricep.png" />
                 Автопоезд в составе тягача и прицепа
                 {atcTypeVal === 'pricep' && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button variant="outlined" fullWidth onClick={() => handleClick('trall')}>
-                <img className="atc-type-img" src="../../../../content/images/calc-atc-type/trall.png" />
+                <img className="atc-type-img" src="/content/images/calc-atc-type/trall.png" />
                 Автопоезд в составе тягача и трала
                 {atcTypeVal === 'trall' && <CheckIcon />}
               </Button>

@@ -124,23 +124,23 @@ const StepThree = props => {
           </div>
           <div className="row mt-2">
             <div className="col">
-              {/* <ButtonBases url={'../../../../content/images/os/1os.png'} title={'Одиночные'} width={'100%'} /> */}
+              {/* <ButtonBases url={'/content/images/os/1os.png'} title={'Одиночные'} width={'100%'} /> */}
               <Button fullWidth onClick={() => handleFirstGroupOs(1)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/1os.png" />
+                <img className="atc-type-img" src="/content/images/os/1os.png" />
                 Одиночные
                 {firstGroupOSVal === 1 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleSecondGroupOs(1)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/1os.png" />
+                <img className="atc-type-img" src="/content/images/os/1os.png" />
                 Одиночные
                 {secondGroupOSVal === 1 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleThirdGroupOs(1)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/1os.png" />
+                <img className="atc-type-img" src="/content/images/os/1os.png" />
                 Одиночные
                 {thirdGroupOSVal === 1 && <CheckIcon />}
               </Button>
@@ -149,21 +149,21 @@ const StepThree = props => {
           <div className="row mt-2">
             <div className="col">
               <Button fullWidth onClick={() => handleFirstGroupOs(2)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/2os.png" />
+                <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {firstGroupOSVal === 2 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleSecondGroupOs(2)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/2os.png" />
+                <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {secondGroupOSVal === 2 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleThirdGroupOs(2)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/2os.png" />
+                <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {thirdGroupOSVal === 2 && <CheckIcon />}
               </Button>
@@ -172,21 +172,21 @@ const StepThree = props => {
           <div className="row mt-2">
             <div className="col">
               <Button fullWidth onClick={() => handleFirstGroupOs(3)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/3os.png" />
+                <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {firstGroupOSVal === 3 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleSecondGroupOs(3)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/3os.png" />
+                <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {secondGroupOSVal === 3 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleThirdGroupOs(3)} variant="outlined">
-                <img className="atc-type-img" src="../../../../content/images/os/3os.png" />
+                <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {thirdGroupOSVal === 3 && <CheckIcon />}
               </Button>
@@ -266,36 +266,36 @@ const StepThree = props => {
           <div className="row mt-4">
             <div className="col">
               <Button fullWidth onClick={() => handleFirstGroupOsSkat(1)} variant="outlined">
-                <img src="../../../../content/images/skat/1skat.png" />
+                <img src="/content/images/skat/1skat.png" />
                 Односкатные
                 {firstGroupOSSkatVal === 1 && <CheckIcon />}
               </Button>
               <Button fullWidth onClick={() => handleFirstGroupOsSkat(2)} variant="outlined">
-                <img src="../../../../content/images/skat/2skat.png" />
+                <img src="/content/images/skat/2skat.png" />
                 Двускатные
                 {firstGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleSecondGroupOsSkat(1)} variant="outlined">
-                <img src="../../../../content/images/skat/1skat.png" />
+                <img src="/content/images/skat/1skat.png" />
                 Односкатные
                 {secondGroupOSSkatVal === 1 && <CheckIcon />}
               </Button>
               <Button fullWidth onClick={() => handleSecondGroupOsSkat(2)} variant="outlined">
-                <img src="../../../../content/images/skat/2skat.png" />
+                <img src="/content/images/skat/2skat.png" />
                 Двускатные
                 {secondGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>
             </div>
             <div className="col">
               <Button fullWidth onClick={() => handleThirdGroupOsSkat(1)} variant="outlined">
-                <img src="../../../../content/images/skat/1skat.png" />
+                <img src="/content/images/skat/1skat.png" />
                 Односкатные
                 {thirdGroupOSSkatVal === 1 && <CheckIcon />}
               </Button>
               <Button fullWidth onClick={() => handleThirdGroupOsSkat(2)} variant="outlined">
-                <img src="../../../../content/images/skat/2skat.png" />
+                <img src="/content/images/skat/2skat.png" />
                 Двускатные
                 {thirdGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>

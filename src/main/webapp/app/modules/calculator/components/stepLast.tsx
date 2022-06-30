@@ -8,7 +8,7 @@ const StepLast = props => {
       {/* <Typography>All steps completed - you&apos;re finished</Typography> */}
       <div className="row mb-3">
         <div className="col">
-          <img src="../../../../content/images/step/last-step-img.png" />
+          <img src="/content/images/step/last-step-img.png" />
         </div>
       </div>
       <div className="row">
