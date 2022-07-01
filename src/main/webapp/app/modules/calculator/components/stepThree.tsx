@@ -199,17 +199,17 @@ const StepThree = props => {
         <Typography>{step.description}</Typography>
         <Box sx={{ mb: 2 }}>
           <div className="row mt-5">
-            <div className="col-3">Первая группа осей</div>
-            <div className="col-3">Вторая группа осей</div>
-            <div className="col-3">Третья группа осей</div>
+            <div className="col-sm-12 col-md-6 col-lg-3">Первая группа осей</div>
+            <div className="col-sm-12 col-md-6 col-lg-3">Вторая группа осей</div>
+            <div className="col-sm-12 col-md-6 col-lg-3">Третья группа осей</div>
             {atcType === 'pricep' && (
-              <div className="col-3">
+              <div className="col-sm-12 col-md-6 col-lg-3">
                 <Button onClick={handleClickAdd}>{checkFoursGroupOsVal ? 'Удалить' : 'Добавить'}</Button>
               </div>
             )}
           </div>
           <div className="row mt-2">
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               {/* <ButtonBases url={'/content/images/os/1os.png'} title={'Одиночные'} width={'100%'} /> */}
               <Button fullWidth onClick={() => handleFirstGroupOs(1)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/1os.png" />
@@ -217,14 +217,14 @@ const StepThree = props => {
                 {firstGroupOSVal === 1 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleSecondGroupOs(1)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/1os.png" />
                 Одиночные
                 {secondGroupOSVal === 1 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleThirdGroupOs(1)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/1os.png" />
                 Одиночные
@@ -232,7 +232,7 @@ const StepThree = props => {
               </Button>
             </div>
             {checkFoursGroupOsVal && (
-              <div className="col-3">
+              <div className="col-sm-12 col-md-6 col-lg-3">
                 <Button fullWidth onClick={() => handleFourGroupOs(1)} variant="outlined">
                   <img className="atc-type-img" src="/content/images/os/1os.png" />
                   Одиночные
@@ -242,21 +242,21 @@ const StepThree = props => {
             )}
           </div>
           <div className="row mt-2">
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleFirstGroupOs(2)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {firstGroupOSVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleSecondGroupOs(2)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
                 {secondGroupOSVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleThirdGroupOs(2)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/2os.png" />
                 Сдвоенные
@@ -264,7 +264,7 @@ const StepThree = props => {
               </Button>
             </div>
             {checkFoursGroupOsVal && (
-              <div className="col-3">
+              <div className="col-sm-12 col-md-6 col-lg-3">
                 <Button fullWidth onClick={() => handleFourGroupOs(2)} variant="outlined">
                   <img className="atc-type-img" src="/content/images/os/2os.png" />
                   Сдвоенные
@@ -274,21 +274,21 @@ const StepThree = props => {
             )}
           </div>
           <div className="row mt-2">
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleFirstGroupOs(3)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {firstGroupOSVal === 3 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleSecondGroupOs(3)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
                 {secondGroupOSVal === 3 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleThirdGroupOs(3)} variant="outlined">
                 <img className="atc-type-img" src="/content/images/os/3os.png" />
                 Строенные
@@ -296,7 +296,7 @@ const StepThree = props => {
               </Button>
             </div>
             {checkFoursGroupOsVal && (
-              <div className="col-3">
+              <div className="col-sm-12 col-md-6 col-lg-3">
                 <Button fullWidth onClick={() => handleFourGroupOs(3)} variant="outlined">
                   <img className="atc-type-img" src="/content/images/os/3os.png" />
                   Строенные
@@ -308,7 +308,7 @@ const StepThree = props => {
           {FGroupOSVal() && (
             <>
               <div className="row mt-4">
-                <div className="col-3">
+                <div className="col-sm-12 col-md-6 col-lg-3">
                   {firstGroupOSVal > 1 && (
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
@@ -328,7 +328,7 @@ const StepThree = props => {
                     </FormControl>
                   )}
                 </div>
-                <div className="col-3">
+                <div className="col-sm-12 col-md-6 col-lg-3">
                   {secondGroupOSVal > 1 && (
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
@@ -348,7 +348,7 @@ const StepThree = props => {
                     </FormControl>
                   )}
                 </div>
-                <div className="col-3">
+                <div className="col-sm-12 col-md-6 col-lg-3">
                   {thirdGroupOSVal > 1 && (
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
@@ -369,7 +369,7 @@ const StepThree = props => {
                   )}
                 </div>
                 {checkFoursGroupOsVal && (
-                  <div className="col-3">
+                  <div className="col-sm-12 col-md-6 col-lg-3">
                     {fourGroupOSVal > 1 && (
                       <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
@@ -394,13 +394,13 @@ const StepThree = props => {
             </>
           )}
           <div className="row mt-4">
-            <div className="col-3">Скатность колес</div>
-            <div className="col-3">Скатность колес</div>
-            <div className="col-3">Скатность колес</div>
+            <div className="col-sm-12 col-md-6 col-lg-3">Скатность колес</div>
+            <div className="col-sm-12 col-md-6 col-lg-3">Скатность колес</div>
+            <div className="col-sm-12 col-md-6 col-lg-3">Скатность колес</div>
             {checkFoursGroupOsVal && <div className="col">Скатность колес</div>}
           </div>
           <div className="row mt-4">
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleFirstGroupOsSkat(1)} variant="outlined">
                 <img src="/content/images/skat/1skat.png" />
                 Односкатные
@@ -412,7 +412,7 @@ const StepThree = props => {
                 {firstGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleSecondGroupOsSkat(1)} variant="outlined">
                 <img src="/content/images/skat/1skat.png" />
                 Односкатные
@@ -424,7 +424,7 @@ const StepThree = props => {
                 {secondGroupOSSkatVal === 2 && <CheckIcon />}
               </Button>
             </div>
-            <div className="col-3">
+            <div className="col-sm-12 col-md-6 col-lg-3">
               <Button fullWidth onClick={() => handleThirdGroupOsSkat(1)} variant="outlined">
                 <img src="/content/images/skat/1skat.png" />
                 Односкатные
@@ -437,7 +437,7 @@ const StepThree = props => {
               </Button>
             </div>
             {checkFoursGroupOsVal && (
-              <div className="col-3">
+              <div className="col-sm-12 col-md-6 col-lg-3">
                 <Button fullWidth onClick={() => handleFourGroupOsSkat(1)} variant="outlined">
                   <img src="/content/images/skat/1skat.png" />
                   Односкатные

@@ -28,51 +28,55 @@ export const Home = () => {
     <>
       <ModalPermitDocs open={open} handleClose={handleClose} title={title} description={description} image={image} list={list} />
       <section className="main-section-home">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 ">
-              <div className="app-main-text fs-xl fs-lg fs-md fs-sm">TRANS CONSULTING</div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="app-main-secondary-text">Ваш эксперт в автомобильных &#10;перевозках!</div>
-          </div>
-          <div className="row justify-content-center first-sections-block">
-            <div className="row justify-content-center col-sm-12 col-md-12 col-lg-7 col-xl-6 mb-md-3 mb-sm-3">
-              <div className="row left-box">
-                <div className="row">
-                  <div className="col-sm-7">
-                    <text className="first-section-left-block-text">Получить стоимость спец разрешения</text>
-                  </div>
-                </div>
-                <div className="row first-section-left-block-second-text ">
-                  <text>
-                    Рассчитайте стоимость спецразрешения за перевозку негабаритного или тяжеловесного груза и подберите автомобиль под ваш
-                    груз в нашем калькуляторе?
-                  </text>
-                </div>
-                <div className="row calculate-button-row align-items-end">
-                  <button onClick={handleCalc} className="calculate-button">
-                    Перейти к расчету
-                  </button>
-                </div>
+        <div className="container-fluid">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 ">
+                {/* <div className="app-main-text fs-xl fs-lg fs-md fs-sm">TRANS CONSULTING</div> */}
+                <span className="h1 app-main-text">TRANS CONSULTING</span>
               </div>
             </div>
-            <div className="row justify-content-center col-sm-12 col-md-12 col-lg-7 col-xl-6 mb-md-3 mb-sm-3">
-              <div className="row right-box">
-                <div className="row">
-                  <div className="col-sm-7">
-                    <text className="first-section-left-block-text">КОНСТРУКТОР ДОКУМЕНТОВ</text>
+            <div className="row">
+              {/* <div className="app-main-secondary-text">Ваш эксперт в автомобильных &#10;перевозках!</div> */}
+              <span className="h2 app-main-secondary-text">Ваш эксперт в автомобильных &#10;перевозках!</span>
+            </div>
+            <div className="row justify-content-center first-sections-block">
+              <div className="row justify-content-center col-sm-12 col-md-12 col-lg-7 col-xl-6 mb-md-3 mb-sm-3">
+                <div className="row left-box">
+                  <div className="row">
+                    <div className="col-sm-7">
+                      <text className="first-section-left-block-text">Получить стоимость спец разрешения</text>
+                    </div>
+                  </div>
+                  <div className="row first-section-left-block-second-text ">
+                    <text>
+                      Рассчитайте стоимость спецразрешения за перевозку негабаритного или тяжеловесного груза и подберите автомобиль под ваш
+                      груз в нашем калькуляторе?
+                    </text>
+                  </div>
+                  <div className="row calculate-button-row align-items-end">
+                    <button onClick={handleCalc} className="calculate-button">
+                      Перейти к расчету
+                    </button>
                   </div>
                 </div>
-                <div className="row first-section-left-block-second-text ">
-                  <text>
-                    Наш конструктор документов предназначен для составления следующих документов: Договор автомобильной перевозки,
-                    Товарно-транспортная накладная (ТТН), международная товарно-транспортная накладная (CMR), Путевой лист.
-                  </text>
-                </div>
-                <div className="row calculate-button-row align-items-end">
-                  <button className="calculate-button">Перейти к расчету</button>
+              </div>
+              <div className="row justify-content-center col-sm-12 col-md-12 col-lg-7 col-xl-6 mb-md-3 mb-sm-3">
+                <div className="row right-box">
+                  <div className="row">
+                    <div className="col-sm-7">
+                      <text className="first-section-left-block-text">КОНСТРУКТОР ДОКУМЕНТОВ</text>
+                    </div>
+                  </div>
+                  <div className="row first-section-left-block-second-text ">
+                    <text>
+                      Наш конструктор документов предназначен для составления следующих документов: Договор автомобильной перевозки,
+                      Товарно-транспортная накладная (ТТН), международная товарно-транспортная накладная (CMR), Путевой лист.
+                    </text>
+                  </div>
+                  <div className="row calculate-button-row align-items-end">
+                    <button className="calculate-button">Перейти к расчету</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -83,12 +87,16 @@ export const Home = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-sm-12">
-              <div className="consult-text">КОНСАЛТИНГОВЫЕ УСЛУГИ</div>
+              <div className="consult-text">
+                <span className="h1">КОНСАЛТИНГОВЫЕ УСЛУГИ</span>
+              </div>
             </div>
           </div>
           <div className="row justify-content-center">
             <div className="col-sm-12">
-              <div className="consult-text">Юридическая и специализированная консультация в сфере автомобильных перевозок.</div>
+              <div className="consult-text">
+                <span className="h2">Юридическая и специализированная консультация в сфере автомобильных перевозок.</span>
+              </div>
             </div>
           </div>
           <div className="row justify-content-between consult-box">
@@ -291,7 +299,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="row justify-content-between consult-box">
-            <div className="row col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение специального разрешения на перевозку тяжеловесных и крупногабаритных грузов
@@ -315,7 +323,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="row col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className=" col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">Получение специального разрешения на перевозку опасных грузов</div>
                 <div className="permit-docs-first-box-btn">
@@ -337,7 +345,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="row col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className=" col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение удостоверения допуска к осуществлению международных автомобильных перевозок и карточки допуска
@@ -365,7 +373,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="row justify-content-around ">
-            <div className="row col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение иностранного бланка разрешения (дозвол) и заполнение отечественного бланка разрешения
@@ -389,7 +397,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="row col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение свидетельство о допущении транспортного средства к перевозке опасных грузов в международном сообщении

@@ -5,7 +5,7 @@ $header-color-hover: darken($header-color, 20%);
 header {
   background: rgba(26, 109, 178, 0.32);
   color: #ccc;
-  height: 72px;
+  // height: 72px;
   position: fixed;
   top: 0;
   left: 0;
@@ -129,4 +129,7 @@ header.fixed a.logo svg .cls-1 {
 
 header.fixed a.logo svg .cls-2 {
   fill: #04488a;
+}
+.center_header {
+  margin: 0 auto;
 }

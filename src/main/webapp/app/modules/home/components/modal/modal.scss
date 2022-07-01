@@ -21,3 +21,10 @@ $black-color: #000000;
 .row-title {
   margin-top: 10px;
 }
+.modal-responsive {
+  @media (max-width: 576px) {
+    width: auto !important;
+    height: 400px;
+    overflow: scroll;
+  }
+}
