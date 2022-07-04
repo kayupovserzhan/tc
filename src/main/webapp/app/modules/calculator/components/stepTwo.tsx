@@ -27,7 +27,7 @@ const StepTwo = props => {
         <Typography>{step.description}</Typography>
         <Box sx={{ mb: 2 }}>
           <div className="row mt-2">
-            <div className="col">
+            <div className="col mb-2">
               <Button variant="outlined" fullWidth onClick={() => handleClick('single')}>
                 <div>
                   <img className="atc-type-img" src="/content/images/calc-atc-type/single.png" />
@@ -45,7 +45,7 @@ const StepTwo = props => {
             </div>
           </div>
           <div className="row mt-2">
-            <div className="col">
+            <div className="col mb-2">
               <Button variant="outlined" fullWidth onClick={() => handleClick('pricep')}>
                 <img className="atc-type-img" src="/content/images/calc-atc-type/pricep.png" />
                 Автопоезд в составе тягача и прицепа
