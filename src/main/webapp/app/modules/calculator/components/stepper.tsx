@@ -278,9 +278,10 @@ export default function VerticalLinearStepper() {
     const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
 
     // расчет по осям
-    // setTrak1Coef(
-    //   trak1OsValue === '1' ? table1OS(trak1weight) : GetCoef(isometric, +trak1weight, +trak1OsDistance, +trak1OsValue, '', lenivec)
-    // );
+    const trak1Coef =
+      firstGroupOS === '1'
+        ? table1OS(firstGroupOSWeight, isometric)
+        : GetCoef(isometric, firstGroupOSWeight, firstGroupOSDistance, firstGroupOS, '', false);
 
     // setTrak2Coef(
     //   trak2OsValue === '1'

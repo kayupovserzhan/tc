@@ -130,14 +130,6 @@ const StepThree = props => {
     handleNext();
   };
 
-  function FGroupOSVal() {
-    if (firstGroupOSVal > 1 || secondGroupOSVal > 1 || thirdGroupOSVal > 1 || fourGroupOSVal > 1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   function isAllValuesSelected(): boolean {
     if (atcType === 'single' || atcType === 'polupricep') {
       if (firstGroupOSVal > 0 && secondGroupOSVal > 0 && thirdGroupOSVal > 0) {
@@ -187,10 +179,320 @@ const StepThree = props => {
       setFourGroupOsDistanceVal('');
       setFourGroupOSSkatVal(0);
       console.log('deleted');
+    } else {
+      setThirdGroupOSVal(0);
     }
   };
 
-  // console.log(isAllValuesSelected());
+  const handleChangeOsGroupTrall = (os, e) => {
+    if (os === 3) setThirdGroupOSVal(e.target.value as number);
+    if (os === 4) setFourGroupOSVal(e.target.value as number);
+  };
+
+  const FirstOsGroupRender = () => {
+    return (
+      <div className="col-sm-12 col-md-6 col-lg-3">
+        Первая группа осей
+        <Button className="mt-10" fullWidth onClick={() => handleFirstGroupOs(1)} variant="outlined">
+          <img className="atc-type-img" src="/content/images/os/1os.png" />
+          Одиночные
+          {firstGroupOSVal === 1 && <CheckIcon />}
+        </Button>
+        <Button
+          disabled={atcType === 'polupricep' ? true : atcType === 'pricep' ? true : false}
+          className="mt-10"
+          fullWidth
+          onClick={() => handleFirstGroupOs(2)}
+          variant="outlined"
+        >
+          <img className="atc-type-img" src="/content/images/os/2os.png" />
+          Сдвоенные
+          {firstGroupOSVal === 2 && <CheckIcon />}
+        </Button>
+        <Button
+          disabled={atcType === 'polupricep' ? true : atcType === 'pricep' ? true : false}
+          className="mt-10"
+          fullWidth
+          onClick={() => handleFirstGroupOs(3)}
+          variant="outlined"
+        >
+          <img className="atc-type-img" src="/content/images/os/3os.png" />
+          Строенные
+          {firstGroupOSVal === 3 && <CheckIcon />}
+        </Button>
+        {firstGroupOSVal > 1 && (
+          <FormControl className="mt-10" fullWidth>
+            <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={firstGroupOsDistanceVal}
+              defaultValue={firstGroupOsDistanceVal}
+              label="Расстояние между осями"
+              onChange={handleChangeFirst}
+            >
+              <MenuItem value={first}>до 1 метра</MenuItem>
+              <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
+              <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
+              <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
+            </Select>
+          </FormControl>
+        )}
+        <div className="mt-10">Скатность колес</div>
+        <Button className="mt-10" fullWidth onClick={() => handleFirstGroupOsSkat(1)} variant="outlined">
+          <img src="/content/images/skat/1skat.png" />
+          Односкатные
+          {firstGroupOSSkatVal === 1 && <CheckIcon />}
+        </Button>
+        <Button
+          disabled={atcType === 'single' ? true : atcType === 'polupricep' ? true : atcType === 'pricep' ? true : false}
+          className="mt-10"
+          fullWidth
+          onClick={() => handleFirstGroupOsSkat(2)}
+          variant="outlined"
+        >
+          <img src="/content/images/skat/2skat.png" />
+          Двускатные
+          {firstGroupOSSkatVal === 2 && <CheckIcon />}
+        </Button>
+      </div>
+    );
+  };
+
+  const SecondOsGroupRender = () => {
+    return (
+      <div className="col-sm-12 col-md-6 col-lg-3">
+        Вторая группа осей
+        <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOs(1)} variant="outlined">
+          <img className="atc-type-img" src="/content/images/os/1os.png" />
+          Одиночные
+          {secondGroupOSVal === 1 && <CheckIcon />}
+        </Button>
+        <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOs(2)} variant="outlined">
+          <img className="atc-type-img" src="/content/images/os/2os.png" />
+          Сдвоенные
+          {secondGroupOSVal === 2 && <CheckIcon />}
+        </Button>
+        <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOs(3)} variant="outlined">
+          <img className="atc-type-img" src="/content/images/os/3os.png" />
+          Строенные
+          {secondGroupOSVal === 3 && <CheckIcon />}
+        </Button>
+        {secondGroupOSVal > 1 && (
+          <FormControl className="mt-10" fullWidth>
+            <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={secondGroupOsDistanceVal}
+              defaultValue={secondGroupOsDistanceVal}
+              label="Расстояние между осями"
+              onChange={handleChangeSecond}
+            >
+              <MenuItem value={first}>до 1 метра</MenuItem>
+              <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
+              <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
+              <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
+            </Select>
+          </FormControl>
+        )}
+        <div className="mt-10">Скатность колес</div>
+        <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOsSkat(1)} variant="outlined">
+          <img src="/content/images/skat/1skat.png" />
+          Односкатные
+          {secondGroupOSSkatVal === 1 && <CheckIcon />}
+        </Button>
+        <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOsSkat(2)} variant="outlined">
+          <img src="/content/images/skat/2skat.png" />
+          Двускатные
+          {secondGroupOSSkatVal === 2 && <CheckIcon />}
+        </Button>
+      </div>
+    );
+  };
+
+  const osForTrall = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+  const ThirdOsGroupRender = () => {
+    return (
+      <div className="col-sm-12 col-md-6 col-lg-3">
+        <div>
+          Третья группа осей
+          {atcType === 'trall' ? (
+            <>
+              <FormControl className="mt-10" fullWidth>
+                <InputLabel id="demo-simple-select-label">группа осей</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={thirdGroupOSVal === 0 ? '' : (thirdGroupOSVal as string)}
+                  defaultValue={thirdGroupOSVal === 0 ? '' : (thirdGroupOSVal as string)}
+                  label="группа осей"
+                  onChange={e => handleChangeOsGroupTrall(3, e)}
+                >
+                  {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'].map(
+                    os => (
+                      <MenuItem key={os} value={os}>
+                        {os}
+                      </MenuItem>
+                    )
+                  )}
+                </Select>
+              </FormControl>
+            </>
+          ) : (
+            <>
+              <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOs(1)} variant="outlined">
+                <img className="atc-type-img" src="/content/images/os/1os.png" />
+                Одиночные
+                {thirdGroupOSVal === 1 && <CheckIcon />}
+              </Button>
+              <Button
+                disabled={checkFoursGroupOsVal ? true : false}
+                className="mt-10"
+                fullWidth
+                onClick={() => handleThirdGroupOs(2)}
+                variant="outlined"
+              >
+                <img className="atc-type-img" src="/content/images/os/2os.png" />
+                Сдвоенные
+                {thirdGroupOSVal === 2 && <CheckIcon />}
+              </Button>
+              <Button
+                disabled={checkFoursGroupOsVal ? true : false}
+                className="mt-10"
+                fullWidth
+                onClick={() => handleThirdGroupOs(3)}
+                variant="outlined"
+              >
+                <img className="atc-type-img" src="/content/images/os/3os.png" />
+                Строенные
+                {thirdGroupOSVal === 3 && <CheckIcon />}
+              </Button>
+            </>
+          )}
+          {thirdGroupOSVal > 1 && (
+            <FormControl className="mt-10" fullWidth>
+              <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={thirdGroupOsDistanceVal}
+                defaultValue={thirdGroupOsDistanceVal}
+                label="Расстояние между осями"
+                onChange={handleChangeThird}
+              >
+                <MenuItem value={first}>до 1 метра</MenuItem>
+                <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
+                <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
+                <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
+              </Select>
+            </FormControl>
+          )}
+        </div>
+        <div className="mt-10">Скатность колес</div>
+        <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOsSkat(1)} variant="outlined">
+          <img src="/content/images/skat/1skat.png" />
+          Односкатные
+          {thirdGroupOSSkatVal === 1 && <CheckIcon />}
+        </Button>
+        <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOsSkat(2)} variant="outlined">
+          <img src="/content/images/skat/2skat.png" />
+          Двускатные
+          {thirdGroupOSSkatVal === 2 && <CheckIcon />}
+        </Button>
+      </div>
+    );
+  };
+
+  const FourOsGroupRender = () => {
+    return (
+      <div className="col-sm-12 col-md-6 col-lg-3">
+        {['pricep', 'trall'].includes(atcType) && <Button onClick={handleClickAdd}>{checkFoursGroupOsVal ? 'Удалить' : 'Добавить'}</Button>}
+        {checkFoursGroupOsVal && (
+          <>
+            Четвертая группа осей
+            {atcType === 'trall' ? (
+              <>
+                <FormControl className="mt-10" fullWidth>
+                  <InputLabel id="demo-simple-select-label">группа осей</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={thirdGroupOSVal === 0 ? '' : (thirdGroupOSVal as string)}
+                    defaultValue={thirdGroupOSVal === 0 ? '' : (thirdGroupOSVal as string)}
+                    label="группа осей"
+                    onChange={e => handleChangeOsGroupTrall(4, e)}
+                  >
+                    {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'].map(
+                      os => (
+                        <MenuItem key={os} value={os}>
+                          {os}
+                        </MenuItem>
+                      )
+                    )}
+                  </Select>
+                </FormControl>
+              </>
+            ) : (
+              <>
+                <Button className="mt-10" fullWidth onClick={() => handleFourGroupOs(1)} variant="outlined">
+                  <img className="atc-type-img" src="/content/images/os/1os.png" />
+                  Одиночные
+                  {fourGroupOSVal === 1 && <CheckIcon />}
+                </Button>
+                <Button className="mt-10" fullWidth onClick={() => handleFourGroupOs(2)} variant="outlined">
+                  <img className="atc-type-img" src="/content/images/os/2os.png" />
+                  Сдвоенные
+                  {fourGroupOSVal === 2 && <CheckIcon />}
+                </Button>
+                <Button
+                  disabled={checkFoursGroupOsVal ? true : false}
+                  className="mt-10"
+                  fullWidth
+                  onClick={() => handleFourGroupOs(3)}
+                  variant="outlined"
+                >
+                  <img className="atc-type-img" src="/content/images/os/3os.png" />
+                  Строенные
+                  {fourGroupOSVal === 3 && <CheckIcon />}
+                </Button>
+              </>
+            )}
+            {fourGroupOSVal > 1 && (
+              <FormControl className="mt-10" fullWidth>
+                <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={fourGroupOsDistanceVal}
+                  defaultValue={fourGroupOsDistanceVal}
+                  label="Расстояние между осями"
+                  onChange={handleChangeFour}
+                >
+                  <MenuItem value={first}>до 1 метра</MenuItem>
+                  <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
+                  <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
+                  <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
+                </Select>
+              </FormControl>
+            )}
+            Скатность колес
+            <Button className="mt-10" fullWidth onClick={() => handleFourGroupOsSkat(1)} variant="outlined">
+              <img src="/content/images/skat/1skat.png" />
+              Односкатные
+              {fourGroupOSSkatVal === 1 && <CheckIcon />}
+            </Button>
+            <Button className="mt-10" fullWidth onClick={() => handleFourGroupOsSkat(2)} variant="outlined">
+              <img src="/content/images/skat/2skat.png" />
+              Двускатные
+              {fourGroupOSSkatVal === 2 && <CheckIcon />}
+            </Button>
+          </>
+        )}
+      </div>
+    );
+  };
 
   return (
     <>
@@ -199,200 +501,14 @@ const StepThree = props => {
         <Typography>{step.description}</Typography>
         <Box sx={{ mb: 2 }}>
           <div className="row mt-5">
-            <div className="col-sm-12 col-md-6 col-lg-3">
-              Первая группа осей
-              <Button className="mt-10" fullWidth onClick={() => handleFirstGroupOs(1)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/1os.png" />
-                Одиночные
-                {firstGroupOSVal === 1 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleFirstGroupOs(2)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/2os.png" />
-                Сдвоенные
-                {firstGroupOSVal === 2 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleFirstGroupOs(3)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/3os.png" />
-                Строенные
-                {firstGroupOSVal === 3 && <CheckIcon />}
-              </Button>
-              {firstGroupOSVal > 1 && (
-                <FormControl className="mt-10" fullWidth>
-                  <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={firstGroupOsDistanceVal}
-                    defaultValue={firstGroupOsDistanceVal}
-                    label="Расстояние между осями"
-                    onChange={handleChangeFirst}
-                  >
-                    <MenuItem value={first}>до 1 метра</MenuItem>
-                    <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
-                    <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
-                    <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              <div className="mt-10">Скатность колес</div>
-              <Button className="mt-10" fullWidth onClick={() => handleFirstGroupOsSkat(1)} variant="outlined">
-                <img src="/content/images/skat/1skat.png" />
-                Односкатные
-                {firstGroupOSSkatVal === 1 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleFirstGroupOsSkat(2)} variant="outlined">
-                <img src="/content/images/skat/2skat.png" />
-                Двускатные
-                {firstGroupOSSkatVal === 2 && <CheckIcon />}
-              </Button>
-            </div>
-            <div className="col-sm-12 col-md-6 col-lg-3">
-              Вторая группа осей
-              <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOs(1)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/1os.png" />
-                Одиночные
-                {secondGroupOSVal === 1 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOs(2)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/2os.png" />
-                Сдвоенные
-                {secondGroupOSVal === 2 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOs(3)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/3os.png" />
-                Строенные
-                {secondGroupOSVal === 3 && <CheckIcon />}
-              </Button>
-              {secondGroupOSVal > 1 && (
-                <FormControl className="mt-10" fullWidth>
-                  <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={secondGroupOsDistanceVal}
-                    defaultValue={secondGroupOsDistanceVal}
-                    label="Расстояние между осями"
-                    onChange={handleChangeSecond}
-                  >
-                    <MenuItem value={first}>до 1 метра</MenuItem>
-                    <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
-                    <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
-                    <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              <div className="mt-10">Скатность колес</div>
-              <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOsSkat(1)} variant="outlined">
-                <img src="/content/images/skat/1skat.png" />
-                Односкатные
-                {secondGroupOSSkatVal === 1 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleSecondGroupOsSkat(2)} variant="outlined">
-                <img src="/content/images/skat/2skat.png" />
-                Двускатные
-                {secondGroupOSSkatVal === 2 && <CheckIcon />}
-              </Button>
-            </div>
-            <div className="col-sm-12 col-md-6 col-lg-3">
-              Третья группа осей
-              <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOs(1)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/1os.png" />
-                Одиночные
-                {thirdGroupOSVal === 1 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOs(2)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/2os.png" />
-                Сдвоенные
-                {thirdGroupOSVal === 2 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOs(3)} variant="outlined">
-                <img className="atc-type-img" src="/content/images/os/3os.png" />
-                Строенные
-                {thirdGroupOSVal === 3 && <CheckIcon />}
-              </Button>
-              {thirdGroupOSVal > 1 && (
-                <FormControl className="mt-10" fullWidth>
-                  <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={thirdGroupOsDistanceVal}
-                    defaultValue={thirdGroupOsDistanceVal}
-                    label="Расстояние между осями"
-                    onChange={handleChangeThird}
-                  >
-                    <MenuItem value={first}>до 1 метра</MenuItem>
-                    <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
-                    <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
-                    <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              <div className="mt-10">Скатность колес</div>
-              <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOsSkat(1)} variant="outlined">
-                <img src="/content/images/skat/1skat.png" />
-                Односкатные
-                {thirdGroupOSSkatVal === 1 && <CheckIcon />}
-              </Button>
-              <Button className="mt-10" fullWidth onClick={() => handleThirdGroupOsSkat(2)} variant="outlined">
-                <img src="/content/images/skat/2skat.png" />
-                Двускатные
-                {thirdGroupOSSkatVal === 2 && <CheckIcon />}
-              </Button>
-            </div>
-
-            <div className="col-sm-12 col-md-6 col-lg-3">
-              {atcType === 'pricep' && <Button onClick={handleClickAdd}>{checkFoursGroupOsVal ? 'Удалить' : 'Добавить'}</Button>}
-              {checkFoursGroupOsVal && (
-                <>
-                  Четвертая группа осей
-                  <Button className="mt-10" fullWidth onClick={() => handleFourGroupOs(1)} variant="outlined">
-                    <img className="atc-type-img" src="/content/images/os/1os.png" />
-                    Одиночные
-                    {fourGroupOSVal === 1 && <CheckIcon />}
-                  </Button>
-                  <Button className="mt-10" fullWidth onClick={() => handleFourGroupOs(2)} variant="outlined">
-                    <img className="atc-type-img" src="/content/images/os/2os.png" />
-                    Сдвоенные
-                    {fourGroupOSVal === 2 && <CheckIcon />}
-                  </Button>
-                  <Button className="mt-10" fullWidth onClick={() => handleFourGroupOs(3)} variant="outlined">
-                    <img className="atc-type-img" src="/content/images/os/3os.png" />
-                    Строенные
-                    {fourGroupOSVal === 3 && <CheckIcon />}
-                  </Button>
-                  {fourGroupOSVal > 1 && (
-                    <FormControl className="mt-10" fullWidth>
-                      <InputLabel id="demo-simple-select-label">Расстояние между осями</InputLabel>
-                      <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={fourGroupOsDistanceVal}
-                        defaultValue={fourGroupOsDistanceVal}
-                        label="Расстояние между осями"
-                        onChange={handleChangeFour}
-                      >
-                        <MenuItem value={first}>до 1 метра</MenuItem>
-                        <MenuItem value={second}>от 1 метра включительно до 1,3 метра</MenuItem>
-                        <MenuItem value={third}>от 1,3 метра включительно до 1,8 метра</MenuItem>
-                        <MenuItem value={fourth}>от 1,8 метра до 2 метров</MenuItem>
-                      </Select>
-                    </FormControl>
-                  )}
-                  Скатность колес
-                  <Button className="mt-10" fullWidth onClick={() => handleFourGroupOsSkat(1)} variant="outlined">
-                    <img src="/content/images/skat/1skat.png" />
-                    Односкатные
-                    {fourGroupOSSkatVal === 1 && <CheckIcon />}
-                  </Button>
-                  <Button className="mt-10" fullWidth onClick={() => handleFourGroupOsSkat(2)} variant="outlined">
-                    <img src="/content/images/skat/2skat.png" />
-                    Двускатные
-                    {fourGroupOSSkatVal === 2 && <CheckIcon />}
-                  </Button>
-                </>
-              )}
-            </div>
+            <FirstOsGroupRender />
+            <SecondOsGroupRender />
+            {!['single', 'polupricep'].includes(atcType) && (
+              <>
+                <ThirdOsGroupRender />
+                <FourOsGroupRender />
+              </>
+            )}
           </div>
           <div>
             <Button disabled={isAllValuesSelected()} variant="contained" onClick={handleNextStep} sx={{ mt: 1, mr: 1 }}>
