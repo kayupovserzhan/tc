@@ -131,7 +131,19 @@ const StepThree = props => {
   };
 
   function isAllValuesSelected(): boolean {
-    if (atcType === 'single' || atcType === 'polupricep') {
+    if (atcType === 'single') {
+      if (firstGroupOSVal > 0 && secondGroupOSVal > 0 ) {
+        if (firstGroupOSVal > 1 && firstGroupOsDistanceVal === '') return true;
+        if (secondGroupOSVal > 1 && secondGroupOsDistanceVal === '') return true;
+
+        if (firstGroupOSSkatVal === 0 || secondGroupOSSkatVal === 0) return true;
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    if (atcType === 'polupricep') {
       if (firstGroupOSVal > 0 && secondGroupOSVal > 0 && thirdGroupOSVal > 0) {
         if (firstGroupOSVal > 1 && firstGroupOsDistanceVal === '') return true;
         if (secondGroupOSVal > 1 && secondGroupOsDistanceVal === '') return true;

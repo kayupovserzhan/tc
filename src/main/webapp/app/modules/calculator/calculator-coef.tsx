@@ -140,3 +140,24 @@ export const GetCoef = (isometric, weigth, allowWeight, osValue, atsType = '', l
     }
   }
 };
+
+export const getAllowWeight = (osCount, lenivec, trak2OsValue, trak2Skat, trak2weight) => {
+  const osCountVal =
+    osCount === 1
+      ? 10
+      : osCount === 2
+      ? 18
+      : osCount === 3
+      ? lenivec && trak2OsValue === '2' && trak2Skat === 'trak2skat2' && +trak2weight <= 19
+        ? 26
+        : 25
+      : osCount === 4
+      ? 32
+      : osCount === 5
+      ? 38
+      : osCount >= 6
+      ? 44
+      : 0;
+
+  return osCountVal;
+};

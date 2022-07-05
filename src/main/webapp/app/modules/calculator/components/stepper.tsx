@@ -14,7 +14,7 @@ import StepThree from './stepThree';
 import StepFive from './stepFive';
 import StepLast from './stepLast';
 import { useAppSelector } from 'app/config/store';
-import { GetCoef, getCoefDimension, table1OS } from '../calculator-coef';
+import { getAllowWeight, GetCoef, getCoefDimension, table1OS } from '../calculator-coef';
 
 const MRP = 3063;
 
@@ -220,6 +220,11 @@ export default function VerticalLinearStepper() {
     const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
 
     // расчет по осям
+    console.log(
+      `firstGroupOSWeight: ${firstGroupOSWeight}`,
+      `firstGroupOSDistance: ${firstGroupOSDistance}`,
+      `firstGroupOS: ${firstGroupOS}`
+    );
     const trak1Coef =
       firstGroupOS === 1
         ? table1OS(firstGroupOSWeight, isometric)
@@ -278,51 +283,90 @@ export default function VerticalLinearStepper() {
     const ledgeCoef = ledge > 1 ? (ledge - 1) * 0.004 : 0;
 
     // расчет по осям
+    console.log(
+      `firstGroupOSWeight: ${firstGroupOSWeight}`,
+      `firstGroupOSDistance: ${firstGroupOSDistance}`,
+      `firstGroupOS: ${firstGroupOS}`
+    );
     const trak1Coef =
-      firstGroupOS === '1'
+      firstGroupOS === 1
         ? table1OS(firstGroupOSWeight, isometric)
         : GetCoef(isometric, firstGroupOSWeight, firstGroupOSDistance, firstGroupOS, '', false);
 
-    // setTrak2Coef(
-    //   trak2OsValue === '1'
-    //     ? table1OS(trak2weight)
-    //     : GetCoef(isometric, +trak2weight, +trak2OsDistance, +trak2OsValue, '', lenivec, veduchiTrak)
-    // );
-    // setTrak3Coef(
-    //   trak3OsValue === '1'
-    //     ? table1OS(trak3weight)
-    //     : GetCoef(isometric, +trak3weight, +trak3OsDistance, +trak3OsValue, +trak3OsValue < 4 ? '' : 'trawl')
-    // );
-    // setTrak4Coef(
-    //   pricepOs === 2
-    //     ? trak4OsValue === '1'
-    //       ? table1OS(trak4weight)
-    //       : GetCoef(isometric, +trak4weight, +trak4OsDistance, +trak4OsValue, 'trawl')
-    //     : 0
-    // );
+    console.log(
+      `firstGroupOSWeight: ${secondGroupOSWeight}`,
+      `firstGroupOSDistance: ${secondGroupOSDistance}`,
+      `firstGroupOS: ${secondGroupOS}`
+    );
+    const trak2Coef =
+      secondGroupOS === 1
+        ? table1OS(secondGroupOSWeight, isometric)
+        : GetCoef(isometric, +secondGroupOSWeight, +secondGroupOSDistance, +secondGroupOS, '', false, veduchiTrak);
 
-    // const tyagachOsCounttemp = +trak1OsValue + +trak2OsValue;
-    // const tralOsCounttemp = pricepOs === 1 ? +trak3OsValue : +trak3OsValue + +trak4OsValue;
-    // const tyagachAllowWeight = getAllowWeight(tyagachOsCounttemp);
+    console.log(
+      `firstGroupOSWeight: ${thirdGroupOSWeight}`,
+      `firstGroupOSDistance: ${thirdGroupOSDistance}`,
+      `firstGroupOS: ${thirdGroupOS}`
+    );
+    const trak3Coef =
+      thirdGroupOS === 1
+        ? table1OS(thirdGroupOSWeight, isometric)
+        : GetCoef(isometric, +thirdGroupOSWeight, +thirdGroupOSDistance, +thirdGroupOS, +thirdGroupOS < 4 ? '' : 'trawl');
 
-    // let tralAllowWeight;
-    // if (+tralOsCounttemp === 1 || +tralOsCounttemp === 2) {
-    //   tralAllowWeight = getAllowWeight(tralOsCounttemp);
-    // } else if (+tralOsCounttemp === 3) {
-    //   tralAllowWeight = 25;
-    // } else {
-    //   if (+pricepOs === 1) {
-    //     tralAllowWeight = +trak3OsValue === 1 ? 10 : +trak3OsDistance;
-    //   } else {
-    //     tralAllowWeight = (+trak3OsValue === 1 ? 10 : +trak3OsDistance) + (+trak4OsValue === 1 ? 10 : +trak4OsDistance);
-    //   }
-    // }
-    // const allowWeight = isometric
-    //   ? tyagachAllowWeight + tralAllowWeight - ((tyagachAllowWeight + tralAllowWeight) / 100) * 20
-    //   : tyagachAllowWeight + tralAllowWeight;
+    const trak4Coef =
+      fourGroupOS > 0
+        ? fourGroupOS === 1
+          ? table1OS(fourGroupOSWeight, isometric)
+          : GetCoef(isometric, +fourGroupOSWeight, +fourGroupOSDistance, +fourGroupOS, 'trawl')
+        : 0;
 
-    // const currentWeight = +trak1weight + +trak2weight + +trak3weight + +trak4weight;
-    // setWeightCoef(+(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0));
+    const tyagachOsCounttemp = +firstGroupOS + +secondGroupOS;
+    const tralOsCounttemp = fourGroupOS === 0 ? +thirdGroupOS : +thirdGroupOS + +fourGroupOS;
+    const tyagachAllowWeight = getAllowWeight(tyagachOsCounttemp, false, secondGroupOS, secondGroupOSSkat, secondGroupOSWeight);
+
+    let tralAllowWeight;
+    if (+tralOsCounttemp === 1 || +tralOsCounttemp === 2) {
+      tralAllowWeight = getAllowWeight(tralOsCounttemp, false, secondGroupOS, secondGroupOSSkat, secondGroupOSWeight);
+    } else if (+tralOsCounttemp === 3) {
+      tralAllowWeight = 25;
+    } else {
+      if (+fourGroupOS === 0) {
+        tralAllowWeight = +thirdGroupOS === 1 ? 10 : +thirdGroupOSDistance;
+      } else {
+        tralAllowWeight = (+thirdGroupOS === 1 ? 10 : +thirdGroupOSDistance) + (+fourGroupOS === 1 ? 10 : +fourGroupOSDistance);
+      }
+    }
+    const allowWeight = isometric
+      ? tyagachAllowWeight + tralAllowWeight - ((tyagachAllowWeight + tralAllowWeight) / 100) * 20
+      : tyagachAllowWeight + tralAllowWeight;
+
+    const currentWeight = +firstGroupOSWeight + +secondGroupOSWeight + +thirdGroupOSWeight + +fourGroupOSWeight;
+    const weightCoef = +(currentWeight > allowWeight ? (currentWeight - allowWeight) * 0.005 : 0);
+
+    console.log('heightCoef: ' + heightCoef);
+    console.log('widthCoef: ' + widthCoef);
+    console.log('lengthCoef: ' + lengthCoef);
+    console.log('ledgeCoef: ' + ledgeCoef);
+    console.log('weightCoef: ' + weightCoef);
+    console.log('track1Coef: ' + trak1Coef);
+    console.log('track2Coef: ' + trak2Coef);
+    console.log('track3Coef: ' + trak3Coef);
+    console.log(
+      'final cost: ' +
+        +(
+          (+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +trak1Coef + +trak2Coef + +trak3Coef) *
+          MRP *
+          +distance
+        ).toFixed()
+    );
+
+    setFinalCost(
+      +(
+        (+heightCoef + +widthCoef + +lengthCoef + +ledgeCoef + weightCoef + +trak1Coef + +trak2Coef + +trak3Coef) *
+        MRP *
+        +distance
+      ).toFixed()
+    );
   }
 
   const calculate = () => {
