@@ -36,21 +36,10 @@ import { Toolbar, Typography } from '@mui/material';
 
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
-const menuList = [
-  { name: 'Консалтинговые услуги', id: 1 },
-  { name: 'Разрешительные документы', id: 2 },
-  { name: 'Проектные услуги', id: 3 },
-];
-
-
-
 export const App = () => {
-  
-
   return (
     <Router basename={baseHref}>
       <div className="app-container">
-        
         <div id="app-view-container">
           <ErrorBoundary>
             <AppRoutes />
@@ -61,7 +50,5 @@ export const App = () => {
     </Router>
   );
 };
-
-
 
 export default App;

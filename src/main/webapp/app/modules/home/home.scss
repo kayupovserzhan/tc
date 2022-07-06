@@ -1,6 +1,20 @@
 $blue-light-color: #94c2ff;
 $white-color: #ffffff;
 
+.sheet-link {
+  text-decoration: none;
+  :hover {
+    color: black;
+  }
+}
+
+.toolbar-title {
+  text-decoration: none;
+  :hover {
+    color: $blue-light-color;
+  }
+}
+
 .main-section-home {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url(../../../content/images/highway-surrounded-by-hills-cloudy-sky.png);
