@@ -3,6 +3,7 @@ import './footer.scss';
 import React from 'react';
 
 import { Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <div className="footer page-content">
@@ -12,7 +13,9 @@ const Footer = () => (
           <a>О компании</a>
         </div>
         <div className="col-sm footer-menu-title">
-          <a>Калькулятор</a>
+          <Link className="footer-container__contacts" to="/calculator">
+            Калькулятор
+          </Link>
         </div>
         <div className="col-sm footer-menu-title">
           <a>Конструктор документов</a>
@@ -27,7 +30,9 @@ const Footer = () => (
           <a>Сопровождение</a>
         </div>
         <div className="col-sm footer-menu-title">
-          <a>Контакты</a>
+          <Link className="footer-container__contacts" to="/contacts">
+            Контакты
+          </Link>
         </div>
       </div>
       <div className="row">

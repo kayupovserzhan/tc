@@ -45,14 +45,14 @@ export const Home = () => {
                 <div className="row left-box">
                   <div className="row">
                     <div className="col-sm-7">
-                      <text className="first-section-left-block-text">Получить стоимость спец разрешения</text>
+                      <p className="first-section-left-block-text">Получить стоимость спец разрешения</p>
                     </div>
                   </div>
                   <div className="row first-section-left-block-second-text ">
-                    <text>
+                    <p>
                       Рассчитайте стоимость спецразрешения за перевозку негабаритного или тяжеловесного груза и подберите автомобиль под ваш
                       груз в нашем калькуляторе?
-                    </text>
+                    </p>
                   </div>
                   <div className="row calculate-button-row align-items-end">
                     <button onClick={handleCalc} className="calculate-button">
@@ -65,14 +65,14 @@ export const Home = () => {
                 <div className="row right-box">
                   <div className="row">
                     <div className="col-sm-7">
-                      <text className="first-section-left-block-text">КОНСТРУКТОР ДОКУМЕНТОВ</text>
+                      <p className="first-section-left-block-text">КОНСТРУКТОР ДОКУМЕНТОВ</p>
                     </div>
                   </div>
                   <div className="row first-section-left-block-second-text ">
-                    <text>
+                    <p>
                       Наш конструктор документов предназначен для составления следующих документов: Договор автомобильной перевозки,
                       Товарно-транспортная накладная (ТТН), международная товарно-транспортная накладная (CMR), Путевой лист.
-                    </text>
+                    </p>
                   </div>
                   <div className="row calculate-button-row align-items-end">
                     <button className="calculate-button">Перейти к расчету</button>

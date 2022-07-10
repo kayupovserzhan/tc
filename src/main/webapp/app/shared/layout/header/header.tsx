@@ -1,6 +1,6 @@
 import './header.scss';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { Navbar, Nav, NavbarToggler, Collapse } from 'reactstrap';
@@ -22,13 +22,24 @@ export interface IHeaderProps {
 const Header = (props: IHeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const [activeClass, setActiveClass] = useState('top');
 
-  /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY === 0) {
+        setActiveClass('top');
+      } else {
+        setActiveClass('normal');
+      }
+    });
+  }, []);
+
+  console.log(activeClass);
 
   return (
     <div id="app-header">
       {/* <LoadingBar className="loading-bar" /> */}
-      <header>
+      <header className={activeClass}>
         <div className="container header-row">
           <div className="row header-row align-items-center">
             <div className="col-sm-12 col-md-12 col-lg-1 col-xl-1">
@@ -45,7 +56,7 @@ const Header = (props: IHeaderProps) => {
                 </IconButton>
               </div>
             </div>
-            <div className="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+            <div className="col-sm-12 col-md-12 col-lg-5 col-xl-5 mb-2">
               <div className="center_header">
                 <Link to={'/'} className={'logo'}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 939.5 280.39">
@@ -148,15 +159,15 @@ const Header = (props: IHeaderProps) => {
                 </Link>
               </div>
             </div>
-            <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 info-right ">
+            <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 mb-2 info-right ">
               <div className="center_header">+7 777 808 88 22</div>
             </div>
-            <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 info-right ">
+            <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 mb-2 info-right ">
               <div className="center_header">
                 <button className="order-call-button">Заказать звонок</button>
               </div>
             </div>
-            <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 info-right ">
+            <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 mb-2 info-right ">
               <div className="center_header">Войти | Зарегистрироваться</div>
             </div>
           </div>
