@@ -26,6 +26,7 @@ import AppRoute from './shared/app-route';
 import MainLayout from './shared/layout/main-layout';
 import Calcultor from './modules/calculator/calculator';
 import Contacts from './modules/contacts/contacts';
+import About from './modules/about/about';
 
 const loading = <div>loading ...</div>;
 
@@ -55,6 +56,7 @@ const Routes = () => {
         <AppRoute layout={MainLayout} path="/weighing-car" component={WeighingСar} />
         <AppRoute layout={MainLayout} path="/cover-car" component={CoverCar} />
         <AppRoute layout={MainLayout} path="/contacts" component={Contacts} />
+        <AppRoute layout={MainLayout} path="/about" component={About} />
         <AppRoute layout={MainLayout} path="/account/register" component={Register} />
         <AppRoute layout={MainLayout} path="/account/activate/:key?" component={Activate} />
         <AppRoute layout={MainLayout} path="/account/reset/request" component={PasswordResetInit} />

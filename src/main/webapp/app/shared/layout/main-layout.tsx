@@ -188,7 +188,11 @@ const MainLayout = () => {
     const docs = data.documents;
     return (
       <Box sx={{ width: 350 }}>
-        <Toolbar sx={{ justifyContent: 'center', background: '/content/images/highway-surrounded-by-hills-cloudy-sky.png' }}>
+        <Toolbar
+          className="toolbar"
+          style={{ background: '/content/images/highway-surrounded-by-hills-cloudy-sky.png' }}
+          sx={{ justifyContent: 'center', background: '/content/images/highway-surrounded-by-hills-cloudy-sky.png' }}
+        >
           <Typography variant="h6" noWrap component="div">
             <Link className="toolbar-title" to={'/'}>
               TransConsulting

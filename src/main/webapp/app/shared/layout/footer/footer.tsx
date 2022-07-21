@@ -10,7 +10,9 @@ const Footer = () => (
     <div className="container footer-container">
       <div className="row align-items-center justify-content-center footer-container-row">
         <div className="col-sm footer-menu-title ">
-          <a>О компании</a>
+          <Link className="footer-container__contacts" to="/about">
+            О компании
+          </Link>
         </div>
         <div className="col-sm footer-menu-title">
           <Link className="footer-container__contacts" to="/calculator">

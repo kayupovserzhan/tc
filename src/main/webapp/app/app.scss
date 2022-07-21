@@ -8,6 +8,21 @@ body {
   background: #e5e5e5;
 }
 
+.toolbar {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(../content/images/highway-surrounded-by-hills-cloudy-sky.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #ccc;
+}
+
+#app-view-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 // .view-container {
 //   background-repeat: no-repeat;
 //   background-size: auto !important;

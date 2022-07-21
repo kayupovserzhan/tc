@@ -4,7 +4,7 @@ import './calculator.scss';
 
 const Calcultor = () => {
   return (
-    <div className="container">
+    <div className="container container_calc">
       <div className="row mt-5">
         <p className="calc_main_text">Стоимость спец разрешения</p>
       </div>

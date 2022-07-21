@@ -10,6 +10,7 @@ $white-color: #ffffff;
 
 .toolbar-title {
   text-decoration: none;
+  color: $white-color;
   :hover {
     color: $blue-light-color;
   }
