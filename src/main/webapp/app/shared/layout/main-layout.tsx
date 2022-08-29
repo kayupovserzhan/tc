@@ -187,7 +187,7 @@ const MainLayout = () => {
   const list = () => {
     const docs = data.documents;
     return (
-      <Box sx={{ width: 350 }}>
+      <Box className='toolbar-box' sx={{ width: 350 }}>
         <Toolbar
           className="toolbar"
           style={{ background: '/content/images/highway-surrounded-by-hills-cloudy-sky.png' }}

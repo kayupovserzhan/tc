@@ -27,6 +27,8 @@ import MainLayout from './shared/layout/main-layout';
 import Calcultor from './modules/calculator/calculator';
 import Contacts from './modules/contacts/contacts';
 import About from './modules/about/about';
+import SignIn from './modules/sign-in/sign-in';
+import SignUp from './modules/sign-up/sign-up';
 
 const loading = <div>loading ...</div>;
 
@@ -47,6 +49,8 @@ const Routes = () => {
         {/* <ErrorBoundaryRoute path="/login" component={Login} />
         <ErrorBoundaryRoute path="/logout" component={Logout} /> */}
         <ErrorBoundaryRoute path="/calculator" component={Calcultor} />
+        <AppRoute layout={MainLayout} path="/sign-in" component={SignIn} />
+        <AppRoute layout={MainLayout} path="/sign-up" component={SignUp} />
         <AppRoute layout={MainLayout} path="/escort" component={Escort} />
         <AppRoute layout={MainLayout} path="/tahograf" component={Tahograf} />
         <AppRoute layout={MainLayout} path="/protection-interests" component={ProtectionInterests} />

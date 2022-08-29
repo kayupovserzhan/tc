@@ -9,6 +9,7 @@ import LoadingBar from 'react-redux-loading-bar';
 import { Home, Brand } from './header-components';
 import { AdminMenu, EntitiesMenu, AccountMenu } from '../menus';
 import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;
@@ -36,14 +37,28 @@ const Header = (props: IHeaderProps) => {
 
   console.log(activeClass);
 
+  const [openHamburger, setOpenHamburger] = useState(false);
+  const [openNavLinks, setOpenNavLinks] = useState(false);
+
+  const hamburgerClick = () => {
+    setOpenHamburger(!openHamburger);
+    setOpenNavLinks(!openNavLinks);
+
+    // const links = document.querySelectorAll('.nav-links li');
+
+    // links.forEach(link => {
+    //   link.classList.toggle('fade');
+    // });
+  };
+
   return (
     <div id="app-header">
       {/* <LoadingBar className="loading-bar" /> */}
       <header className={activeClass}>
-        <div className="container header-row">
+        <div className="header-row">
           <div className="row header-row align-items-center">
             <div className="col-sm-12 col-md-12 col-lg-1 col-xl-1">
-              <div>
+              <div className="menu-icon">
                 <IconButton
                   onClick={() => props.toggleDrawerProps(true)}
                   size="large"
@@ -56,7 +71,7 @@ const Header = (props: IHeaderProps) => {
                 </IconButton>
               </div>
             </div>
-            <div className="col-sm-12 col-md-12 col-lg-5 col-xl-5 mb-2">
+            <div className="col-sm-12 col-md-12 col-lg-4 col-xl-5 mb-2">
               <div className="center_header">
                 <Link to={'/'} className={'logo'}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 939.5 280.39">
@@ -163,12 +178,24 @@ const Header = (props: IHeaderProps) => {
               <div className="center_header">+7 777 808 88 22</div>
             </div>
             <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 mb-2 info-right ">
-              <div className="center_header">
-                <button className="order-call-button">Заказать звонок</button>
+              <div className="center_nav_header">
+                <div onClick={hamburgerClick} className={`hamburger ${openHamburger ? 'toggle' : ''}`}>
+                  <div className="bars1"></div>
+                  <div className="bars2"></div>
+                  <div className="bars3"></div>
+                </div>
+                <ul className={`nav-links ${openNavLinks ? 'open' : ''}`}>
+                  <li>
+                    <button className="order-call-button">Заказать звонок</button>
+                  </li>
+                  <li>
+                    <Link to={'/sign-in'}>Войти</Link>
+                  </li>
+                  <li>
+                    <Link to={'/sign-up'}>Зарегистрироваться</Link>
+                  </li>
+                </ul>
               </div>
-            </div>
-            <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 mb-2 info-right ">
-              <div className="center_header">Войти | Зарегистрироваться</div>
             </div>
           </div>
         </div>
