@@ -57,11 +57,49 @@
 
   color: #d9dbe1;
 }
+.social-icons {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.BG {
+  border-radius: 45%;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  // opacity: 0.1;
+}
+.path {
+  position: absolute;
+  left: 23.33%;
+  right: 23.33%;
+  top: 23.33%;
+  bottom: 23.33%;
+  background-image: url(../../../../content/images/insta.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+}
+.path-twitter {
+  position: absolute;
+  left: 23.33%;
+  right: 23.33%;
+  top: 23.33%;
+  bottom: 23.33%;
+  background-image: url(../../../../content/images/twitter.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+}
 .insta {
   opacity: 0.1;
   border-radius: 45%;
   width: 24px;
   height: 24px;
+}
+.soc-seti {
   background-image: url(../../../../content/images/insta.png);
   background-repeat: no-repeat;
   background-color: transparent;

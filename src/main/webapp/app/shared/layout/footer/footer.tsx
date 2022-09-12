@@ -46,10 +46,25 @@ const Footer = () => (
         </div>
         <div className="col-4">
           <div className="row social-network justify-content-end">
-            <div className="col-sm-3 insta"></div>
-            <div className="col-sm-3 insta"></div>
-            <div className="col-sm-3 insta"></div>
-            <div className="col-sm-3 insta"></div>
+            <div className="col-sm-1">
+              <div className="social-icons">
+                <div className="BG">
+                  <a className="path" rel="noopener noreferrer" href="https://www.instagram.com/transconsulting.kz" target="_blank" />
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-1 ">
+              <div className="social-icons">
+                <div className="BG">
+                  <a
+                    className="path-twitter"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/Transconsulting.kz"
+                    target="_blank"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
