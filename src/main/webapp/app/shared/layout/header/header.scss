@@ -167,6 +167,10 @@ header.fixed a.logo svg .cls-2 {
 .hamburger {
   display: none;
 }
+.header_logo {
+  display: flex;
+  justify-content: center;
+}
 
 @media screen and (max-width: 800px) {
   .toolbar-box {

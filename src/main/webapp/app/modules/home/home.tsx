@@ -65,7 +65,7 @@ export const Home = () => {
                 <div className="row right-box">
                   <div className="row">
                     <div className="col-sm-7">
-                      <p className="first-section-left-block-text">КОНСТРУКТОР ДОКУМЕНТОВ</p>
+                      <p className="first-section-left-block-text">Конструктор документов</p>
                     </div>
                   </div>
                   <div className="row first-section-left-block-second-text ">
@@ -157,7 +157,7 @@ export const Home = () => {
                       className="detailed-consult-button"
                       onClick={() => {
                         handleOpen();
-                        setTitle('Консультация по перевозке ОГ');
+                        setTitle('Консультант по вопросам безопасности перевозки опасных грузов автомобильным транспортом');
                         setDescription(
                           'Каждое предприятие, деятельность которого включает автомобильную перевозку опасных грузов или связанные с ней операции по упаковке, погрузке, наполнению или разгрузке, обязан иметь одного или нескольких консультантов по вопросам безопасности перевозки опасных грузов. Наша компания может предоставить консультанта и профессионально выполнять возникающие вопросы по перевозке ОГ.'
                         );

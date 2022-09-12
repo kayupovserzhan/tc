@@ -1,11 +1,13 @@
 import VerticalLinearStepper from './components/stepper';
 import React from 'react';
 import './calculator.scss';
+import { Link } from 'react-router-dom';
 
 const Calcultor = () => {
   return (
     <div className="container container_calc">
       <div className="row mt-5">
+        <Link to={'/'}>Вернуться на главную</Link>
         <p className="calc_main_text">Стоимость спец разрешения</p>
       </div>
       <div className="row mt-2">

@@ -29,6 +29,7 @@ import Contacts from './modules/contacts/contacts';
 import About from './modules/about/about';
 import SignIn from './modules/sign-in/sign-in';
 import SignUp from './modules/sign-up/sign-up';
+import NewRequest from './modules/new-request/new-request';
 
 const loading = <div>loading ...</div>;
 
@@ -49,6 +50,7 @@ const Routes = () => {
         {/* <ErrorBoundaryRoute path="/login" component={Login} />
         <ErrorBoundaryRoute path="/logout" component={Logout} /> */}
         <ErrorBoundaryRoute path="/calculator" component={Calcultor} />
+        <ErrorBoundaryRoute path="/new-request" component={NewRequest} />
         <AppRoute layout={MainLayout} path="/sign-in" component={SignIn} />
         <AppRoute layout={MainLayout} path="/sign-up" component={SignUp} />
         <AppRoute layout={MainLayout} path="/escort" component={Escort} />
@@ -67,8 +69,7 @@ const Routes = () => {
         <AppRoute layout={MainLayout} path="/account/reset/finish/:key?" component={PasswordResetFinish} />
         <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
         <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
-        <AppRoute path="/" layout={MainLayout} exact component={Home} />
-        {/* <ErrorBoundaryRoute path="/" exact component={Home} /> */}
+        <AppRoute layout={MainLayout} path="/" component={Home} />
         <PrivateRoute path="/" component={EntitiesRoutes} hasAnyAuthorities={[AUTHORITIES.USER]} />
         <ErrorBoundaryRoute component={PageNotFound} />
       </Switch>

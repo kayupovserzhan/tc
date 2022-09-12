@@ -25,15 +25,14 @@ import ErrorBoundary from '../error/error-boundary';
 import ModalPermitDocs from 'app/modules/home/components/modal/modal';
 import { Link } from 'react-router-dom';
 
-const menuChildList = [
-  { name: 'Предрейсовая проверка', id: 1, parentId: 1 },
-  { name: 'Консультация по НПА', id: 2, parentId: 1 },
-  { name: 'Консультация по ОГ', id: 3, parentId: 1 },
-  { name: 'Расчет суммы сбора', id: 4, parentId: 1 },
-  { name: 'Подбор автомобиля и правильное размещение груза', id: 5, parentId: 1 },
-  { name: 'Консультация по тахографу', id: 6, parentId: 1 },
-  { name: 'Оформление перевозочных документов', id: 7, parentId: 1 },
-];
+const listVarTahograf = (
+  <ol>
+    <li>Выпуск карточки тахографа водителей и предприятии;</li>
+    <li>Подготовка и обучение водителей по соблюдение режима труда и отдыха;</li>
+    <li>Расшифровка активностей и рабочих смен;</li>
+    <li>Поиск нарушений по соблюдению режима труда и отдыха.</li>
+  </ol>
+);
 
 const data = {
   documents: [
@@ -60,7 +59,7 @@ const data = {
         {
           id: 3,
           Title: 'Консультация по ОГ',
-          title: 'Консультация по перевозке ОГ',
+          title: 'Консультант по вопросам безопасности перевозки опасных грузов автомобильным транспортом',
           description:
             'Каждое предприятие, деятельность которого включает автомобильную перевозку опасных грузов или связанные с ней операции по упаковке, погрузке, наполнению или разгрузке, обязан иметь одного или нескольких консультантов по вопросам безопасности перевозки опасных грузов. Наша компания может предоставить консультанта и профессионально выполнять возникающие вопросы по перевозке ОГ.',
           image: '../../../../../content/images/Frame8.png',
@@ -88,6 +87,7 @@ const data = {
           description:
             'Автотранспортные средства, задействованные в перевозках пассажиров и багажа, опасных грузов, а также в международных перевозках грузов должны быть оборудованы «тахографами», а водители данных автотранспортных средств обязаны соблюдать режим труда и отдыха согласно ЕСТР. За нарушение норм ЕСТР и национальных правил предусмотрено административная ответственность водителей и перевозчиков. Наши специалисты осуществляют консультацию в сфере соблюдения режима труда и отдыха водителей, а также производит считывание, расшифровку и анализ данных с карт водителей и тахографов. ',
           image: '../../../../../content/images/Frame11.png',
+          listVarTahograf,
         },
         {
           id: 7,
@@ -187,7 +187,7 @@ const MainLayout = () => {
   const list = () => {
     const docs = data.documents;
     return (
-      <Box className='toolbar-box' sx={{ width: 350 }}>
+      <Box className="toolbar-box" sx={{ width: 350 }}>
         <Toolbar
           className="toolbar"
           style={{ background: '/content/images/highway-surrounded-by-hills-cloudy-sky.png' }}
@@ -227,7 +227,7 @@ const MainLayout = () => {
 
   return (
     <>
-      <ModalPermitDocs open={openModal} handleClose={handleClose} title={title} description={description} image={image} list={list} />
+      <ModalPermitDocs open={openModal} handleClose={handleClose} title={title} description={description} image={image} />
       <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
       <ErrorBoundary>
         <Drawer anchor={'left'} open={openDrawer} onClose={() => toggle(false)}>
