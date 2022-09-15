@@ -93,7 +93,7 @@ const Header = (props: IHeaderProps) => {
                   <li>
                     <Link to={'/sign-in'}>Войти</Link>
                   </li>
-                  <li>
+                  <li className="register-li">
                     <Link to={'/sign-up'}>Зарегистрироваться</Link>
                   </li>
                 </ul>
