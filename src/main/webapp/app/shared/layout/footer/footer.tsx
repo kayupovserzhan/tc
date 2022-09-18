@@ -41,19 +41,19 @@ const Footer = () => (
         <div className="align-items-center justify-content-center footer-divider"></div>
       </div>
       <div className="row justify-content-between">
-        <div className="col-4">
+        <div className="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
           <div className="footer-copyright">© 2020 Trans consalting</div>
         </div>
-        <div className="col-4">
+        <div className="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
           <div className="row social-network justify-content-end">
-            <div className="col-sm-1">
+            <div className="col-1 col-sm-1">
               <div className="social-icons">
                 <div className="BG">
                   <a className="path" rel="noopener noreferrer" href="https://www.instagram.com/transconsulting.kz" target="_blank" />
                 </div>
               </div>
             </div>
-            <div className="col-sm-1 ">
+            <div className="col-1 col-sm-1 ">
               <div className="social-icons">
                 <div className="BG">
                   <a

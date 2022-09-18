@@ -1,5 +1,11 @@
 .footer {
   min-height: 232px;
+  @media (max-width: 576px) {
+    min-height: 272px;
+  }
+  @media (max-width: 768px) {
+    min-height: 272px;
+  }
   background: #424659;
   margin-top: auto;
   display: flex;
@@ -48,6 +54,9 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
+  @media (max-width: 576px) {
+    font-size: 10px;
+  }
   line-height: 24px;
   /* identical to box height, or 171% */
 
@@ -108,4 +117,19 @@
 .footer-container__contacts {
   text-decoration: none;
   color: #fff;
+}
+.social-network {
+  width: 150px;
+  @media (min-width: 576px) {
+    width: auto;
+  }
+  @media (min-width: 768px) {
+    width: auto;
+  }
+  @media (min-width: 992px) {
+    width: auto;
+  }
+  @media (min-width: 1200px) {
+    width: auto;
+  }
 }

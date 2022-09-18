@@ -5,14 +5,16 @@ const CoverCar = () => {
   return (
     <>
       <section className="cover-car-main-section">
-        <div className="container  ">
-          <div className="row">
-            <div className="col-sm-5 main-title">Автомобиль прикрытия</div>
-          </div>
-          <div className="row">
-            <div className="col-sm main-description">
-              При перевозке негабаритных и тяжеловесных, а также опасных грузов необходимо&#10;сопровождение автомобилем прикрытия в целях
-              обеспечения безопасной перевозки.
+        <div className="container-fluid">
+          <div className="container  ">
+            <div className="row">
+              <div className="col-sm-5 main-title">Автомобиль прикрытия</div>
+            </div>
+            <div className="row">
+              <div className="col-sm main-description">
+                При перевозке негабаритных и тяжеловесных, а также опасных грузов необходимо&#10;сопровождение автомобилем прикрытия в целях
+                обеспечения безопасной перевозки.
+              </div>
             </div>
           </div>
         </div>
@@ -20,7 +22,7 @@ const CoverCar = () => {
       <section>
         <div className="container">
           <div className="row">
-            <div className="col-sm">
+            <div className="col">
               <div className="main-text">
                 <p>
                   Перевозка негабаритных грузов является сложным технологическим процессом, сопряжённым с повышенным риском, как для самого
