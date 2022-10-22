@@ -38,10 +38,10 @@ export const Home = () => {
             </div>
             <div className="row">
               {/* <div className="app-main-secondary-text">Ваш эксперт в автомобильных &#10;перевозках!</div> */}
-              <span className="h2 app-main-secondary-text">Ваш эксперт в автомобильных &#10;перевозках!</span>
+              <span className="app-main-secondary-text">Ваш эксперт в автомобильных &#10;перевозках!</span>
             </div>
-            <div className="row justify-content-center first-sections-block">
-              <div className="row justify-content-center col-sm-12 col-md-12 col-lg-7 col-xl-6 mb-md-3 mb-sm-3">
+            <div className="row first-sections-block justify-content-center ">
+              <div className="row parent-left-block col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-md-3 mb-sm-3">
                 <div className="row left-box">
                   <div className="row">
                     <div className="col-sm-7">
@@ -61,7 +61,7 @@ export const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="row justify-content-center col-sm-12 col-md-12 col-lg-7 col-xl-6 mb-md-3 mb-sm-3">
+              <div className="row parent-right-block col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-md-3 mb-sm-3">
                 <div className="row right-box">
                   <div className="row">
                     <div className="col-sm-7">
@@ -95,12 +95,14 @@ export const Home = () => {
           <div className="row justify-content-center">
             <div className="col-sm-12">
               <div className="consult-text">
-                <span className="h2">Юридическая и специализированная консультация в сфере автомобильных перевозок.</span>
+                <span className="consult-text-description">
+                  Юридическая и специализированная консультация в сфере автомобильных перевозок.
+                </span>
               </div>
             </div>
           </div>
           <div className="row justify-content-between consult-box">
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
+            <div className="row col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
                 <div className="consult-car-main-title">Предрейсовая проверка</div>
                 <div className="detailed-consult-link">
@@ -124,7 +126,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
+            <div className="row col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
                 <div className="consult-car-main-title">Консультация по НПА</div>
                 <div className="detailed-consult-link">
@@ -148,7 +150,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
+            <div className="row col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
                 <div className="consult-car-main-title">Консультация по ОГ</div>
                 <div className="detailed-consult-link">
@@ -172,7 +174,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
+            <div className="row col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-lg-3 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
                 <div className="consult-car-main-title">Расчет суммы сбора</div>
                 <div className="detailed-consult-link">
@@ -197,7 +199,7 @@ export const Home = () => {
               </div>
             </div>
           </div>
-          <div className="row justify-content-around consult-box">
+          <div className="row justify-content-between consult-box-2">
             <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3">
               <div className="pred-reisovaya-proverka">
                 <div className="consult-car-main-title">Подбор автомобиля и правильное размещение груза</div>
@@ -298,8 +300,8 @@ export const Home = () => {
               <div className="permit-docs-text">Поможем легко и быстро получить государственные услуги.</div>
             </div>
           </div>
-          <div className="row justify-content-between consult-box">
-            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+          <div className="row justify-content-between permit-docs-cont">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение специального разрешения на перевозку тяжеловесных и крупногабаритных грузов
@@ -323,7 +325,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className=" col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">Получение специального разрешения на перевозку опасных грузов</div>
                 <div className="permit-docs-first-box-btn">
@@ -345,7 +347,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className=" col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className="col-sm-12 col-md-12 col-lg-12 col-xl-4 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение удостоверения допуска к осуществлению международных автомобильных перевозок и карточки допуска
@@ -372,8 +374,8 @@ export const Home = () => {
               </div>
             </div>
           </div>
-          <div className="row justify-content-around ">
-            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+          <div className="row justify-content-around permit-docs-cont-second">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение иностранного бланка разрешения (дозвол) и заполнение отечественного бланка разрешения
@@ -397,7 +399,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-md-3 mb-sm-3 ">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение свидетельство о допущении транспортного средства к перевозке опасных грузов в международном сообщении

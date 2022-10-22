@@ -34,13 +34,17 @@ $white-color: #ffffff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
+    font-size: 64px;
     font-weight: 400;
     line-height: 78px;
     @media (min-width: 576px) {
+      margin-top: 126px;
+    }
+    @media (min-width: 768px) {
       margin-top: 201px;
     }
-    @media (max-width: 768px) {
-      margin-top: 201px;
+    @media (min-width: 992px) {
+      margin-top: 126px;
     }
   }
   .app-main-secondary-text {
@@ -51,13 +55,32 @@ $white-color: #ffffff;
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
     font-weight: 400;
+    font-size: 36px;
     line-height: 44px;
     white-space: break-spaces;
     text-align: center;
   }
 }
 
+.parent-left-block {
+  justify-content: right;
+  margin-right: 5px;
+  @media (max-width: 992px) {
+    justify-content: center;
+    margin-right: inherit;
+  }
+}
+
+.parent-right-block {
+  margin-left: 5px;
+  @media (max-width: 992px) {
+    justify-content: center;
+    margin-left: inherit;
+  }
+}
+
 .left-box {
+  margin-right: 15px;
   width: 540px;
   min-height: 400px;
   background: rgba(255, 255, 255, 0.6);
@@ -66,13 +89,18 @@ $white-color: #ffffff;
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 12px;
   padding: 29px;
+  @media (min-width: 768px) {
+    margin-right: inherit;
+  }
   @media (max-width: 576px) {
     height: auto;
     margin-bottom: 10px;
+    margin-right: inherit;
   }
 }
 
 .right-box {
+  margin-left: 15px;
   width: 540px;
   min-height: 400px;
   background: rgba(255, 255, 255, 0.6);
@@ -81,6 +109,9 @@ $white-color: #ffffff;
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 12px;
   padding: 29px;
+  @media (min-width: 768px) {
+    margin-left: inherit;
+  }
   @media (max-width: 576px) {
     height: auto;
     margin-bottom: 10px;
@@ -153,15 +184,78 @@ $white-color: #ffffff;
   text-align: center;
   color: #000000;
 }
-
+.consult-text-description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
 .consult-section {
   margin-top: 74px;
 }
 
+.permit-docs-cont {
+  margin: 60px auto;
+  @media (min-width: 768px) {
+    width: 710px;
+  }
+  @media (min-width: 992px) {
+    width: 730px;
+  }
+  @media (min-width: 1200px) {
+    width: 1115px;
+  }
+  @media (min-width: 1400px) {
+    width: 1130px;
+  }
+}
+
+.permit-docs-cont-second {
+  margin: 60px auto;
+  @media (min-width: 768px) {
+    width: 710px;
+  }
+  @media (min-width: 992px) {
+    width: 730px;
+  }
+  @media (min-width: 1200px) {
+    width: 740px;
+  }
+  @media (min-width: 1400px) {
+    width: 740px;
+  }
+}
+
 .consult-box {
-  margin-top: 60px;
-  @media (max-width: 576px) {
-    margin-top: 0px;
+  margin: 60px auto 30px auto;
+  @media (min-width: 768px) {
+    width: 560px;
+  }
+  @media (min-width: 992px) {
+    width: 560px;
+  }
+  @media (min-width: 1200px) {
+    width: 1070px;
+  }
+  @media (min-width: 1400px) {
+    width: 1070px;
+  }
+}
+
+.consult-box-2 {
+  margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 560px;
+  }
+  @media (min-width: 992px) {
+    width: 860px;
+  }
+  @media (min-width: 1200px) {
+    width: 860px;
+  }
+  @media (min-width: 1400px) {
+    width: 860px;
   }
 }
 

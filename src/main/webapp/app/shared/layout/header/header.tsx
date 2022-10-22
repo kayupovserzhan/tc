@@ -77,7 +77,11 @@ const Header = (props: IHeaderProps) => {
               </div>
             </div>
             <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 info-right ">
-              <div className="center_header">+7 777 808 88 22</div>
+              <div className="center_header">
+                <a className="header_phone" href="tel:+7-777-780-8247">
+                  +7 777 808 88 22
+                </a>
+              </div>
             </div>
             <div className="col-sm-12 col-md-12 col-lg-2 col-xl-2 info-right ">
               <div className="center_nav_header">

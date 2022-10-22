@@ -120,6 +120,7 @@ Navbar styles
   border-radius: 19px;
   border: none;
   color: #ffffff;
+  white-space: nowrap;
 }
 a.logo svg {
   height: 50px;
@@ -268,4 +269,11 @@ header.fixed a.logo svg .cls-2 {
 }
 .center_nav_header {
   margin: 0 auto;
+}
+.header_phone {
+  margin: 0 0.7vw;
+  text-decoration: none;
+  transition: all ease-in-out 350ms;
+  padding: 10px;
+  color: #d9dfe4;
 }
