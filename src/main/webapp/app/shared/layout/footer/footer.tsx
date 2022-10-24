@@ -8,7 +8,16 @@ import { Link } from 'react-router-dom';
 const Footer = () => (
   <div className="footer page-content">
     <div className="container footer-container">
-      <div className="row align-items-center justify-content-center footer-container-row">
+      <div className="row row-footer-logo">
+        <div className="col">
+          <div className="center_footer footer_logo">
+            <Link to={'/'} className={'logo'}>
+              <img src="/content/images/Group.png" />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="row align-items-center justify-content-between footer-container-row">
         <div className="col-sm footer-menu-title ">
           <Link className="footer-container__contacts" to="/about">
             О компании

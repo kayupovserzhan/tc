@@ -301,7 +301,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="row justify-content-between permit-docs-cont">
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4 ">
+            <div className="permit-docs-first-box col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-md-3 mb-sm-3">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение специального разрешения на перевозку тяжеловесных и крупногабаритных грузов
@@ -325,7 +325,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-4 ">
+            <div className="permit-docs-second-box col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-md-3 mb-sm-3">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">Получение специального разрешения на перевозку опасных грузов</div>
                 <div className="permit-docs-first-box-btn">
@@ -347,7 +347,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-12 col-lg-12 col-xl-4 ">
+            <div className="permit-docs-third-box col-sm-12 col-md-12 col-lg-12 col-xl-4 mb-md-3 mb-sm-3">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение удостоверения допуска к осуществлению международных автомобильных перевозок и карточки допуска
@@ -375,7 +375,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="row justify-content-around permit-docs-cont-second">
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-md-3 mb-sm-3">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение иностранного бланка разрешения (дозвол) и заполнение отечественного бланка разрешения
@@ -399,7 +399,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-md-3 mb-sm-3">
               <div className="permit-docs-box">
                 <div className="permit-docs-first-box-text">
                   Получение свидетельство о допущении транспортного средства к перевозке опасных грузов в международном сообщении
@@ -440,8 +440,8 @@ export const Home = () => {
               <div className="project-services-text">Комплексные услуги для перевозчиков по решению проектных задач.</div>
             </div>
           </div>
-          <div className="row justify-content-between mt-5 ">
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
+          <div className="row justify-content-between mt-5 project-services-first">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3">
               <div className="project-services-box">
                 <div className="cover-car-main-title">Автомобиль прикрытия</div>
                 <div className="cover-car-main-description">
@@ -455,7 +455,7 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3">
               <div className="project-services-box">
                 <div className="cover-car-main-title">Взвешивание автомобиля и сопровождение погрузки с выездом</div>
                 <div className="cover-car-main-description">
@@ -497,7 +497,7 @@ export const Home = () => {
               </div>
             </div>
           </div>
-          <div className="row justify-content-between ">
+          <div className="row justify-content-between project-services-second">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-md-3 mb-sm-3 ">
               <div className="project-services-box">
                 <div className="cover-car-main-title">Профилактика и анализ деятельности компании</div>
